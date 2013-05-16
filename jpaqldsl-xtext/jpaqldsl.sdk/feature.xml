@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="jpaqldsl.sdk"
+	label="JPAQLDsl SDK Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="jpaqldsl"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="jpaqldsl.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

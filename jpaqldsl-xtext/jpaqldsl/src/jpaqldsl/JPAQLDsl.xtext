@@ -1,0 +1,316 @@
+grammar jpaqldsl.JPAQLDsl with org.eclipse.xtext.xbase.Xbase 
+
+generate jPAQLDsl "http://www.JPAQLDsl.jpaqldsl"
+
+import 'classpath:/jpadsl/JPADsl.ecore' as jpadsl
+
+Model:
+xmlDescriptor=XMLDescriptor
+(ORM_UNMANAGED_CONTENT)?
+'<!-- Imports and Package Declaration Here.'
+imports+=Import*
+
+'package' name=QualifiedName
+'-->'
+	(ORM_UNMANAGED_CONTENT)?
+	'<entity class="'entity=[jpadsl::Entity]'">'
+	namedQueries+=NamedQuery*
+	'</entity>'
+	(ORM_UNMANAGED_CONTENT)?
+;
+		
+NamedQuery:
+	'<named-query name="'name=ID'">'
+		'<query>'
+			qlStatement=QLStatement
+		'</query>'
+	'</named-query>'
+;
+
+XMLDescriptor:
+'<?xml version="1.0" encoding="UTF-8" ?>'
+;
+
+QLStatement:
+	selectStatements+=SelectStatement*
+; //| UpdateStatement | DeleteStatement;
+	
+SelectStatement:
+	selectClause=SelectClause fromClause=FromClause (whereClause=WhereClause)? //(groupByClause=GroupByClause) (havingClause=HavingClause) (orderByClause=OrderByClause)
+;
+	
+FromClause: 
+	'FROM' identificationVariableDeclarations+=IdentificationVariableDeclaration (',' identificationVariableDeclarations+=(IdentificationVariableDeclaration | CollectionMemberDeclaration))*
+;
+ 
+ 
+IdentificationVariableDeclaration:
+	rangeVariableDeclaration=RangeVariableDeclaration joins+= ( Join | FetchJoin )*
+;
+ 
+RangeVariableDeclaration: 
+	abstractSchemaName=[jpadsl::Entity] ('AS')? identificationVariable=IdentificationVariable
+;
+ 
+Join:
+	joinSpec=JoinSpec joinAssociationPathExpression=JPAPathExpression ('AS')? identificationVariable=IdentificationVariable
+;
+ 
+FetchJoin:
+	joinSpec=JoinSpec 'FETCH' joinAssociationPathExpression=JPAPathExpression
+;
+ 
+JoinSpec:
+	('LEFT'|'OUTER'|'INNER')? 'JOIN'
+;
+
+JPAPathExpression:
+	root=[IdentificationVariable]('.'jpaAttributes+=JpaAttribute)*
+;
+
+JpaAttribute:
+	attribute=[jpadsl::Attribute]
+;
+ 
+CollectionMemberDeclaration:
+	'IN' collectionValuedPathExpression=JPAPathExpression ('AS')? identificationVariable=IdentificationVariable
+;
+	
+SelectClause:
+	'SELECT' ('DISTINCT')? selectExpressions+=SelectExpression (',' selectExpressions+=SelectExpression)*
+;
+	
+SelectExpression:
+	jpaPathExpression=JPAPathExpression | aggregateExpression=AggregateExpression | constructorExpression=ConstructorExpression
+;
+
+ConstructorExpression:
+	'NEW' constructorName=ConstructorName '(' constructorItems+=ConstructorItem (',' constructorItems+=ConstructorItem)* ')' 
+;
+
+ConstructorItem:
+	JPAPathExpression | AggregateExpression
+;
+	
+AggregateExpression:
+	( 'AVG' | 'MAX' | 'MIN' | 'SUM' | 'COUNT' ) ('DISTINCT')? stateFieldPathExpression=JPAPathExpression
+;
+		
+IdentificationVariable: name=ID;	
+		
+ConstructorName: 
+	name=ID
+;		
+
+//Where
+WhereClause:
+	'WHERE' conditionalExpression=ConditionalExpression
+;
+
+ConditionalExpression returns Expression:
+	ConditionalTerm ({ConditionalExpression.left=current} 'AND' right=ConditionalTerm)*
+;
+
+ConditionalTerm returns Expression:
+	ConditionalFactor ({ConditionalTerm.left=current} 'OR' right=ConditionalFactor)*
+;
+	
+ConditionalFactor returns Expression:
+	 ('NOT')? conditionalPrimary=SimpleConditionalExpression | '(' conditionalExpression=ConditionalExpression ')'
+;
+
+SimpleConditionalExpression :
+	comparisionExpression=ComparisonExpression | betweenExpression=BetweenExpression | likeExpression=LikeExpression | inExpression=InExpression | nullComparisionExpression=NullComparisonExpression | emptyCollectionComparisonExpression=EmptyCollectionComparisonExpression | collectionMemberExpression=CollectionMemberExpression | existsExpression=ExistsExpression
+;
+
+BetweenExpression:
+	primaryArithmeticExpression=ArithmeticExpression ('NOT')? 'BETWEEN' lowerArithmeticExpression=ArithmeticExpression 'AND' upperArithmeticExpression=ArithmeticExpression | 
+	primaryStringExpression=StringExpression ('NOT')? 'BETWEEN' lowerStringExpression=StringExpression 'AND' upperStringExpression=StringExpression |
+	primaryDateTimeExpression=DateTimeExpression ('NOT')? 'BETWEEN' lowerDateTimeExpression=DateTimeExpression 'AND' upperDateTimeExpression=DateTimeExpression
+;
+
+InExpression:
+	pathExpression=JPAPathExpression ('NOT')? 'IN' '(' inItems+=InItem (',' inItems+=InItem)*  | subQuery=SubQuery ')'
+;
+
+InItem:
+	literal=Literal | inputParameter=InputParameter
+;
+
+LikeExpression:
+	 stringExpression=StringExpression ('NOT')? 'LIKE' patternValue=PatternValue ('ESCAPE' escapeCharacter=EscapeCharacter)?
+;
+
+NullComparisonExpression:
+	pathExpression=JPAPathExpression | inputParameter=InputParameter 'IS' ('NOT')? 'NULL'
+;
+
+EmptyCollectionComparisonExpression:
+	pathExpression=JPAPathExpression 'IS' ('NOT')? 'EMPTY'
+;
+
+CollectionMemberExpression:
+	entityExpression=EntityExpression ('NOT')? 'MEMBER' ('OF')? pathExpression=JPAPathExpression
+;
+
+ExistsExpression:
+	('NOT')? 'EXISTS' '(' subQuery=SubQuery ')'
+;
+
+AllOrAnyExpression:
+	('ALL' | 'ANY' | 'SOME') '(' subQuery=SubQuery ')'
+;
+
+ComparisonExpression:
+	primaryStringExpression=StringExpression comparisonOperator=ComparisonOperator (secondaryStringExpression=StringExpression | allOrAnyExpression=AllOrAnyExpression) | primaryBooleanExpression=BooleanExpression ('='|'<>') (secondaryBooleanExpression=BooleanExpression | allOrAnyExpression=AllOrAnyExpression) | primaryEnumExpression=EnumExpression ('='|'<>') (secondaryEnumExpression=EnumExpression | allOrAnyExpression=AllOrAnyExpression) | primaryDatetimeExpression=DateTimeExpression comparisonOperator=ComparisonOperator (secondaryDatetimeExpression=DateTimeExpression | allOrAnyExpression=AllOrAnyExpression) | primaryEntityExpression=EntityExpression ('='|'<>') (secondaryEntityExpression=EntityExpression | allOrAnyExpression=AllOrAnyExpression) | primaryArithmeticExpression=ArithmeticExpression comparisonOperator=ComparisonOperator (secondaryArithmeticExpression=ArithmeticExpression | allOrAnyExpression=AllOrAnyExpression)
+;
+
+ComparisonOperator:
+	 '=' | '>' | '>=' | '<' | '<=' | '<>'
+;
+
+ArithmeticExpression:
+	simpleArithmeticExpression=SimpleArithmeticExpression | '('subQuery=SubQuery')'
+;
+
+SimpleArithmeticExpression returns Expression:
+	arithmeticTerm=ArithmeticTerm | ArithmeticTerm ({SimpleArithmeticExpression.left=current} ('+'|'-') right=ArithmeticTerm)*
+;
+
+ArithmeticTerm returns Expression:
+	arithmeticFactor=ArithmeticFactor | ArithmeticFactor ({ArithmeticTerm.left=current} ('*'|'/') right=ArithmeticFactor)*
+;
+
+ArithmeticFactor returns Expression:
+	('+'|'-')? arithmeticPrimary=ArithmeticPrimary
+;
+
+ArithmeticPrimary :
+	pathExpression=JPAPathExpression | numericLiteral=NumericLiteral | '('simpleArithmeticExpression=SimpleArithmeticExpression')' | inputParameter=InputParameter | functionsReturningNumerics=FunctionsReturningNumerics | aggregateExpression=AggregateExpression
+;
+
+StringExpression:
+	stringPrimary=StringPrimary | '(' subQuery=SubQuery ')'
+;
+
+StringPrimary:
+	pathExpression=JPAPathExpression | stringLiteral=StringLiteral | inputParamater=InputParameter | functionsReturningStrings=FunctionsReturningStrings | aggregateExpression=AggregateExpression
+;
+
+DateTimeExpression:
+	 dateTimePrimary=DateTimePrimary | '(' subQuery=SubQuery ')'
+;
+
+DateTimePrimary:
+	pathExpression=JPAPathExpression | inputParameter=InputParameter | functionsReturningDateTime=FunctionsReturningDateTime | aggregateExpression=AggregateExpression
+;
+
+BooleanExpression:
+	booleanPrimary=BooleanPrimary | '(' subQuery=SubQuery ')'
+;
+
+BooleanPrimary:
+	pathExpression=JPAPathExpression | booleanLiteral=BooleanLiteral | inputParameter=InputParameter
+;
+
+EnumExpression:
+	enumPrimary=EnumPrimary | '(' subQuery=SubQuery ')'
+;
+
+EnumPrimary:
+	pathExpression=JPAPathExpression | enumLiteral=EnumLiteral | inputParameter=InputParameter
+;
+
+EntityExpression:
+	pathExpression=JPAPathExpression | simpleEntityExpression=SimpleEntityExpression
+;
+
+SimpleEntityExpression:
+	identificationVariable=IdentificationVariable | inputParameter=InputParameter
+;
+
+FunctionsReturningNumerics:
+	'LENGTH'(stringPrimary=StringPrimary) | 'LOCATE'(stringPrimary=StringPrimary',' stringSecondary=StringPrimary(',' simpleArithmeticExpression=SimpleArithmeticExpression)?) | 'ABS'(simpleArithmeticExpression=SimpleArithmeticExpression) | 'SQRT'(simpleArithmeticExpression=SimpleArithmeticExpression) | 'MOD'(primarySimpleArithmeticExpression=SimpleArithmeticExpression',' secondarySimpleArithmeticExpression=SimpleArithmeticExpression) | 'SIZE'(pathExpression=JPAPathExpression)
+;
+
+FunctionsReturningDateTime:
+	'CURRENT_DATE'| 'CURRENT_TIME' | 'CURRENT_TIMESTAMP'
+;
+
+FunctionsReturningStrings:
+	'CONCAT'(primaryStringPrimary=StringPrimary',' secondaryStringPrimary=StringPrimary) | 'SUBSTRING'(stringPrimary=StringPrimary',' primarySimpleArithmeticExpression=SimpleArithmeticExpression',' secondarySimpleArithmeticExpression=SimpleArithmeticExpression)| 'TRIM'(((trimSpecification=TrimSpecification)? (trimCharacter=TrimCharacter)? 'FROM')? stringPrimary=StringPrimary) | 'LOWER'(stringPrimary=StringPrimary) | 'UPPER'(stringPrimary=StringPrimary)
+;
+
+TrimSpecification:
+	'LEADING' | 'TRAILING' | 'BOTH'
+;
+
+SubQuery:
+	simpleSelectClause=SimpleSelectClause subqueryFromClause=SubqueryFromClause (whereClause=WhereClause)? //(groupByClause=GroupByClause)? (havingClause=HavingClause)?
+;
+
+SubqueryFromClause:
+	'FROM' subselectIdentificationVariableDeclaration+=SubselectIdentificationVariableDeclaration (',' subselectIdentificationVariableDeclaration+=SubselectIdentificationVariableDeclaration)*
+; 
+	
+SubselectIdentificationVariableDeclaration:
+	identificationVariableDecalaration=IdentificationVariableDeclaration | associationPathExpression=JPAPathExpression ('AS')? identificationVariable=IdentificationVariable | collectionMemberDeclaration=CollectionMemberDeclaration
+;
+
+SimpleSelectClause:
+	'SELECT' ('DISTINCT')? simpleSelectExpression=SimpleSelectExpression
+;
+
+SimpleSelectExpression:
+	pathExpression=JPAPathExpression | aggregateExpression=AggregateExpression | identificationVariable=IdentificationVariable
+;
+
+InputParameter:
+	':'name=ID
+;
+
+EscapeCharacter:
+	name=ID
+;
+
+Literal:
+	name=ID
+;
+
+PatternValue:
+	name=ID
+;
+
+terminal STRING: 
+			'`?' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '`?'
+;
+
+StringLiteral:
+	'\''literal=ID'\''
+;
+
+NumericLiteral:
+	literal=INT
+;
+
+BooleanLiteral:
+	'true' | 'false'
+;
+
+EnumLiteral:
+	name=ID
+;
+
+TrimCharacter:
+	name=ID
+;
+
+Import:
+	'import' importedNamespace=ImportNameSpace
+;
+	
+ImportNameSpace :
+	QualifiedName  ('.' '*')?
+;
+
+terminal ORM_UNMANAGED_CONTENT: '<!-- ORM-UNMANAGED-CONTENT -->' -> '<!-- /ORM-UNMANAGED-CONTENT -->';

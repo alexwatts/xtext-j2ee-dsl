@@ -1,0 +1,58 @@
+grammar accessdsl.AccessDsl with org.eclipse.xtext.xbase.Xbase
+
+import 'classpath:/jpadsl/JPADsl.ecore' as jpadsl
+import 'classpath:/jpaqldsl/JPAQLDsl.ecore' as jpaqldsl
+
+generate accessDsl "http://www.AccessDsl.accessdsl"
+
+Model:
+	imports+=Import*
+	unit=Unit;
+
+Import:
+	'import' importedNamespace=importedNamespace;
+	
+Unit:
+	'package' name=QualifiedName '{'
+		package=PackageName
+		containers+=Container*
+		querymapping+=QueryAndTypeMapping*
+	'}';
+
+PackageName:
+	'package name' name=QualifiedName;
+		
+Container:
+	'container' name=ID '{'
+		containerElements+=ContainerElement* 
+	'}';
+	
+ContainerElement:
+	'element' entity=ContainedEntity alias=STRING;
+	
+ContainedEntity:
+		contained=[jpadsl::Entity];
+		
+QueryAndTypeMapping:
+		'query and type mapping' '{'
+				name=ID
+				(imports+=Import)*
+				query=QueryMapping
+				'container -> ' typeMapping=[Container]
+				'query parameters -> {' 
+					'(' (queryParameters+=FullJvmFormalParameter (',' queryParameters+=FullJvmFormalParameter)*)? ')'
+				'}'
+		'}';
+			
+QueryMapping:
+	SingleResultQueryMapping | MultipleResultQueryMapping;
+	
+	
+SingleResultQueryMapping:
+	'single result mapping' namedQuery=[jpaqldsl::NamedQuery];
+	
+MultipleResultQueryMapping:
+	'multiple result mapping' namedQuery=[jpaqldsl::NamedQuery];
+	
+importedNamespace :
+	QualifiedName  ('.' '*')?;

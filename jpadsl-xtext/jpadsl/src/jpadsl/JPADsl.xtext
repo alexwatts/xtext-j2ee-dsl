@@ -1,0 +1,133 @@
+grammar jpadsl.JPADsl with org.eclipse.xtext.common.Terminals
+
+generate jPADsl "http://www.JPADsl.jpadsl"
+
+Model:
+	elements+=AbstractElement*;
+
+AbstractElement:
+	PackageDeclaration | Type | Import | RelationshipAttribute;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard;
+
+PackageDeclaration:
+	'package' name=QualifiedName '{'
+		databaseModes+=DatabaseMode*
+		elements+=AbstractElement*
+	'}';
+
+Type:
+	Entity | DataType;
+
+DataType:
+	'datatype' name=ID;
+	
+DatabaseMode:
+	'databaseMode' name=ID;
+
+Entity:
+	'entity' name=ID (databaseVendor=[DatabaseMode])? ('extends' superType=[Entity|ID])? (readOnly=ReadOnly)? (cacheable=Cacheable)? '{'
+	    identifier=Identifier
+	    imports+=Import*
+		features+=Feature*
+	'}';
+	
+ReadOnly:
+	'read only' tableName=STRING idColumn=STRING;
+	
+Cacheable:
+	'cacheable' {Cacheable};
+	
+Identifier:
+	UniqueIdentiferColumn | EmbeddedUniqueIdentifer;
+	
+UniqueIdentiferColumn:
+	'unique id' name=ID;
+	
+EmbeddedUniqueIdentifer:
+	'embedded id' name=ID;
+
+Feature:
+	StructuralFeature | Operation;
+
+StructuralFeature:
+	Attribute | Reference;
+
+Attribute:
+	InternalAttribute | RelationshipAttribute | StaticAttribute;
+
+StaticAttribute:
+	'staticAttribute' name=ID ':' type=TypeRef;
+	 
+InternalAttribute:
+ 	ReadOnlyInternalAttribute | UpdatableInternalAttribute | TransientAttribute | IdAttribute;
+ 	
+RelationshipAttribute:
+	OneToOneRelationshipAttribute | OneToOneMappedByRelationshipAttribute | OneToManyJoinTableRelationshipAttribute | OneToManyMappedByRelationshipAttribute | ManyToOneJoinColumnRelationShipAttribute | ManyToOneJoinTableRelationShipAttribute| ManyToOneMappedByRelationShipAttribute | ManyToManyRelationshipAttribute | ManyToManyMappedByRelationshipAttribute | OneToManyJoinColumnRelationshipAttribute;
+	  
+ReadOnlyInternalAttribute:
+	name=ID ':' type=TypeRef;
+	
+UpdatableInternalAttribute:
+	'attribute'  name=ID ':' type=TypeRef;
+	
+TransientAttribute:
+	'transient' name=ID ':' type=TypeRef;
+	
+IdAttribute:
+	'id attribute' name=ID ':' type=TypeRef;
+
+OneToOneRelationshipAttribute:
+	'one to one join column' name=ID ':' type=TypeRef  (joinColumnOverride=STRING)?;
+	
+OneToOneMappedByRelationshipAttribute:
+	'one to one mapped by' name=ID ':' type=TypeRef;
+	
+OneToManyJoinTableRelationshipAttribute:
+	'one to many using join table' name=ID ':' type=TypeRef;
+	
+OneToManyJoinColumnRelationshipAttribute:
+	'one to many using join column' name=ID ':' type=TypeRef;
+	
+OneToManyMappedByRelationshipAttribute:
+	'one to many mapped by' name=ID ':' type=TypeRef;
+	
+ManyToOneJoinColumnRelationShipAttribute:
+	'many to one using join column' name=ID ':' type=TypeRef (joinColumnOverride=STRING)?;
+	
+ManyToOneJoinTableRelationShipAttribute:
+	'many to one using join table' name=ID ':' type=TypeRef;
+	
+ManyToOneMappedByRelationShipAttribute:
+	'many to one mapped by' name=ID ':' type=TypeRef;
+	
+ManyToManyRelationshipAttribute:
+	'many to many join table' name=ID ':' type=TypeRef;
+	
+ManyToManyMappedByRelationshipAttribute:
+	'many to many mapped by' name=ID ':' type=TypeRef;
+	  
+Reference:
+	'ref' name=ID ':' type=TypeRef ('opposite' opposite=[Reference])?;
+
+Operation:
+	visibility=Visibility? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
+
+Parameter:
+	name=ID type=TypeRef;
+
+TypedElement:
+	Feature | Parameter;
+
+TypeRef:
+	referenced=[Type|ID] multi?='*'?;
+
+enum Visibility:
+	public | private | protected;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;

@@ -1,0 +1,23 @@
+
+datatype String
+
+package entities {
+
+	import entities.*
+
+	entity Tree {
+		
+		unique id treeId
+
+	}	
+	
+	entity Branch {
+		
+		unique id branchId
+		
+	
+		
+	}
+
+}
+
