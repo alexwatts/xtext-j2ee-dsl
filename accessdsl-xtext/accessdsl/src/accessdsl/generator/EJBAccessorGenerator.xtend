@@ -13,7 +13,7 @@ class EJBAccessorGenerator  {
 	
 	@Inject extension AccessDslGeneratorExtensions generatorExtensions
 	
-	def compileAccessor(Unit u) '''
+	def compileEjbAccessor(Unit u) '''
 /**
  * «u.name.toFirstUpper() + "EJBAccessorBean.java"»
  */

@@ -72,10 +72,10 @@ PersistOperation:
 	'persist ' this=[jpadsl::Entity];
 
 PersistAndAssociateOperation:
-	'persist and associate ' newEntity=[jpadsl::Entity] existingEntity=[jpadsl::Entity];
+	'persist and associate ' newEntity=[jpadsl::Entity] associaltion=[jpadsl::RelationshipAttribute] existingEntity=[jpadsl::Entity];
 
 AssociateOperation:
-	'associate ' this=[jpadsl::Entity] that=[jpadsl::Entity];
+	'associate ' this=[jpadsl::Entity] associaltion=[jpadsl::RelationshipAttribute] that=[jpadsl::Entity];
 
 UpdateOperation:
 	'update ' this=[jpadsl::Entity];

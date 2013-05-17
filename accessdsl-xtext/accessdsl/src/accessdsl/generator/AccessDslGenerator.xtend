@@ -24,7 +24,9 @@ class AccessDslGenerator implements IGenerator {
 	
 	@Inject extension ContainerGenerator containerGenerator
 	
-	@Inject extension EJBAccessorGenerator accessorGenerator
+	@Inject extension AccessorGenerator accessorGenerator
+	
+	@Inject extension EJBAccessorGenerator ejbAccessorGenerator
 	
 	@Inject extension EJBAccessorInterfaceGenerator accessorInterfaceGenerator
 	
@@ -47,7 +49,9 @@ class AccessDslGenerator implements IGenerator {
 				
 				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "AccessorBean.java", unit.compileAccessor)
 				
-				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "Accessor.java", unit.compileAccessorInterface)
+				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "EJBAccessorBean.java", unit.compileEjbAccessor)
+				
+				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "EJBAccessor.java", unit.compileAccessorInterface)
 				
 			}
 	}

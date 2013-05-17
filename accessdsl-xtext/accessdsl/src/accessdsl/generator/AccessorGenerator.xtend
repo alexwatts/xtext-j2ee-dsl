@@ -10,6 +10,11 @@ import accessdsl.accessDsl.QueryMapping
 import org.eclipse.xtext.common.types.JvmFormalParameter
 import accessdsl.accessDsl.MultipleResultQueryMapping
 import accessdsl.accessDsl.SingleResultQueryMapping
+import accessdsl.accessDsl.StateAdjustment
+import accessdsl.accessDsl.PersistOperation
+import accessdsl.accessDsl.StateOperation
+import accessdsl.accessDsl.PersistAndAssociateOperation
+import accessdsl.accessDsl.AssociateOperation
 
 class AccessorGenerator  {
 	
@@ -39,11 +44,16 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 		«val querymapping = queryMapping(qm)»
 		«querymapping»
 	«ENDFOR»
+	
+	«FOR sa:u.stateAdjustment»
+		«val stateAdjustment = stateAdjustment(sa)»
+		«stateAdjustment»
+	«ENDFOR»
 
 }
 '''	
 
-def queryMapping(QueryAndTypeMapping qm) '''
+	def queryMapping(QueryAndTypeMapping qm) '''
 	public «qm.typeMapping.name» «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR» ) {
 		
 		final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
@@ -62,6 +72,35 @@ def queryMapping(QueryAndTypeMapping qm) '''
 	
 	
 	def queryParameterLiteral(JvmFormalParameter qp, JvmFormalParameter last) '''«qp.name»«IF qp != last», «ENDIF»'''
+	
+	
+	
+	def stateAdjustment(StateAdjustment sa)'''
+	«val stateOperation = stateOperation(sa.stateOperation, sa.name)»«stateOperation»
+	'''
 
+	def dispatch stateOperation(StateOperation so, String name)'''
+	'''
+
+	def dispatch stateOperation(PersistOperation pe, String name)'''
+	public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower») {
+		em.persist(«pe.this.name.toFirstLower»);
+	}
+	'''
+
+	def dispatch stateOperation(PersistAndAssociateOperation pe, String name)'''
+	public «pe.newEntity.name» «name» («pe.newEntity.name» «pe.newEntity.name.toFirstLower», «pe.existingEntity.name» «pe.existingEntity.name.toFirstLower») {
+		em.persist(«pe.newEntity.name.toFirstLower»);
+		
+		«pe.existingEntity.name.toFirstLower».set«pe.associaltion.name.toFirstUpper»(«pe.newEntity.name.toFirstLower»);
+	}
+	'''
+	
+	def dispatch stateOperation(AssociateOperation pe, String name)'''
+	public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower», «pe.that.name» «pe.that.name.toFirstLower») {
+		
+		«pe.this.name.toFirstLower».set«pe.associaltion.name.toFirstUpper»(«pe.that.name.toFirstLower»);
+	}
+	'''
 
 }

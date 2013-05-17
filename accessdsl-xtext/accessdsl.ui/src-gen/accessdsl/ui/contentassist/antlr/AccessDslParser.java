@@ -274,9 +274,11 @@ public class AccessDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateAdjustmentAccess().getStateOperationAssignment_4(), "rule__StateAdjustment__StateOperationAssignment_4");
 					put(grammarAccess.getPersistOperationAccess().getThisAssignment_1(), "rule__PersistOperation__ThisAssignment_1");
 					put(grammarAccess.getPersistAndAssociateOperationAccess().getNewEntityAssignment_1(), "rule__PersistAndAssociateOperation__NewEntityAssignment_1");
-					put(grammarAccess.getPersistAndAssociateOperationAccess().getExistingEntityAssignment_2(), "rule__PersistAndAssociateOperation__ExistingEntityAssignment_2");
+					put(grammarAccess.getPersistAndAssociateOperationAccess().getAssocialtionAssignment_2(), "rule__PersistAndAssociateOperation__AssocialtionAssignment_2");
+					put(grammarAccess.getPersistAndAssociateOperationAccess().getExistingEntityAssignment_3(), "rule__PersistAndAssociateOperation__ExistingEntityAssignment_3");
 					put(grammarAccess.getAssociateOperationAccess().getThisAssignment_1(), "rule__AssociateOperation__ThisAssignment_1");
-					put(grammarAccess.getAssociateOperationAccess().getThatAssignment_2(), "rule__AssociateOperation__ThatAssignment_2");
+					put(grammarAccess.getAssociateOperationAccess().getAssocialtionAssignment_2(), "rule__AssociateOperation__AssocialtionAssignment_2");
+					put(grammarAccess.getAssociateOperationAccess().getThatAssignment_3(), "rule__AssociateOperation__ThatAssignment_3");
 					put(grammarAccess.getUpdateOperationAccess().getThisAssignment_1(), "rule__UpdateOperation__ThisAssignment_1");
 					put(grammarAccess.getDeleteOperationAccess().getThisAssignment_1(), "rule__DeleteOperation__ThisAssignment_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
