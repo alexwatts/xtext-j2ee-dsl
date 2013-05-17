@@ -12,7 +12,7 @@
 	<properties>
 		<tycho-version>0.16.0</tycho-version>
 		<junit-version>4.8.1</junit-version>
-		<xtext-version>2.3.1</xtext-version>
+		<xtext-version>2.4.1</xtext-version>
 	</properties>
 
 	<repositories>
