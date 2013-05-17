@@ -38,6 +38,7 @@ public class AccessDslParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getQueryMappingAccess().getAlternatives(), "rule__QueryMapping__Alternatives");
+					put(grammarAccess.getStateOperationAccess().getAlternatives(), "rule__StateOperation__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
@@ -85,6 +86,12 @@ public class AccessDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQueryAndTypeMappingAccess().getGroup_9_1(), "rule__QueryAndTypeMapping__Group_9_1__0");
 					put(grammarAccess.getSingleResultQueryMappingAccess().getGroup(), "rule__SingleResultQueryMapping__Group__0");
 					put(grammarAccess.getMultipleResultQueryMappingAccess().getGroup(), "rule__MultipleResultQueryMapping__Group__0");
+					put(grammarAccess.getStateAdjustmentAccess().getGroup(), "rule__StateAdjustment__Group__0");
+					put(grammarAccess.getPersistOperationAccess().getGroup(), "rule__PersistOperation__Group__0");
+					put(grammarAccess.getPersistAndAssociateOperationAccess().getGroup(), "rule__PersistAndAssociateOperation__Group__0");
+					put(grammarAccess.getAssociateOperationAccess().getGroup(), "rule__AssociateOperation__Group__0");
+					put(grammarAccess.getUpdateOperationAccess().getGroup(), "rule__UpdateOperation__Group__0");
+					put(grammarAccess.getDeleteOperationAccess().getGroup(), "rule__DeleteOperation__Group__0");
 					put(grammarAccess.getImportedNamespaceAccess().getGroup(), "rule__ImportedNamespace__Group__0");
 					put(grammarAccess.getImportedNamespaceAccess().getGroup_1(), "rule__ImportedNamespace__Group_1__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
@@ -247,6 +254,7 @@ public class AccessDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnitAccess().getPackageAssignment_3(), "rule__Unit__PackageAssignment_3");
 					put(grammarAccess.getUnitAccess().getContainersAssignment_4(), "rule__Unit__ContainersAssignment_4");
 					put(grammarAccess.getUnitAccess().getQuerymappingAssignment_5(), "rule__Unit__QuerymappingAssignment_5");
+					put(grammarAccess.getUnitAccess().getStateAdjustmentAssignment_6(), "rule__Unit__StateAdjustmentAssignment_6");
 					put(grammarAccess.getPackageNameAccess().getNameAssignment_1(), "rule__PackageName__NameAssignment_1");
 					put(grammarAccess.getContainerAccess().getNameAssignment_1(), "rule__Container__NameAssignment_1");
 					put(grammarAccess.getContainerAccess().getContainerElementsAssignment_3(), "rule__Container__ContainerElementsAssignment_3");
@@ -261,6 +269,16 @@ public class AccessDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersAssignment_9_1_1(), "rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_1");
 					put(grammarAccess.getSingleResultQueryMappingAccess().getNamedQueryAssignment_1(), "rule__SingleResultQueryMapping__NamedQueryAssignment_1");
 					put(grammarAccess.getMultipleResultQueryMappingAccess().getNamedQueryAssignment_1(), "rule__MultipleResultQueryMapping__NamedQueryAssignment_1");
+					put(grammarAccess.getStateAdjustmentAccess().getNameAssignment_2(), "rule__StateAdjustment__NameAssignment_2");
+					put(grammarAccess.getStateAdjustmentAccess().getImportsAssignment_3(), "rule__StateAdjustment__ImportsAssignment_3");
+					put(grammarAccess.getStateAdjustmentAccess().getStateOperationAssignment_4(), "rule__StateAdjustment__StateOperationAssignment_4");
+					put(grammarAccess.getPersistOperationAccess().getThisAssignment_1(), "rule__PersistOperation__ThisAssignment_1");
+					put(grammarAccess.getPersistAndAssociateOperationAccess().getNewEntityAssignment_1(), "rule__PersistAndAssociateOperation__NewEntityAssignment_1");
+					put(grammarAccess.getPersistAndAssociateOperationAccess().getExistingEntityAssignment_2(), "rule__PersistAndAssociateOperation__ExistingEntityAssignment_2");
+					put(grammarAccess.getAssociateOperationAccess().getThisAssignment_1(), "rule__AssociateOperation__ThisAssignment_1");
+					put(grammarAccess.getAssociateOperationAccess().getThatAssignment_2(), "rule__AssociateOperation__ThatAssignment_2");
+					put(grammarAccess.getUpdateOperationAccess().getThisAssignment_1(), "rule__UpdateOperation__ThisAssignment_1");
+					put(grammarAccess.getDeleteOperationAccess().getThisAssignment_1(), "rule__DeleteOperation__ThisAssignment_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

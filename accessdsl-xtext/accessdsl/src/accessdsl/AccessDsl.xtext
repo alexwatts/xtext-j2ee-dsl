@@ -13,10 +13,11 @@ Import:
 	'import' importedNamespace=importedNamespace;
 	
 Unit:
-	'package' name=QualifiedName '{'
+	'access unit' name=QualifiedName '{'
 		package=PackageName
 		containers+=Container*
 		querymapping+=QueryAndTypeMapping*
+		stateAdjustment+=StateAdjustment*
 	'}';
 
 PackageName:
@@ -38,7 +39,7 @@ QueryAndTypeMapping:
 				name=ID
 				(imports+=Import)*
 				query=QueryMapping
-				'container -> ' typeMapping=[Container]
+				'return -> ' typeMapping=[Container]
 				'query parameters -> {' 
 					'(' (queryParameters+=FullJvmFormalParameter (',' queryParameters+=FullJvmFormalParameter)*)? ')'
 				'}'
@@ -47,12 +48,40 @@ QueryAndTypeMapping:
 QueryMapping:
 	SingleResultQueryMapping | MultipleResultQueryMapping;
 	
-	
 SingleResultQueryMapping:
 	'single result mapping' namedQuery=[jpaqldsl::NamedQuery];
 	
 MultipleResultQueryMapping:
 	'multiple result mapping' namedQuery=[jpaqldsl::NamedQuery];
+	
+StateAdjustment:
+	'state adjustment' '{'
+		name=ID
+		(imports+=Import)*
+		stateOperation=StateOperation
+	'}';
+	
+StateOperation:
+	PersistOperation | 
+	PersistAndAssociateOperation | 
+	AssociateOperation | 
+	UpdateOperation | 
+	DeleteOperation;
+
+PersistOperation:
+	'persist ' this=[jpadsl::Entity];
+
+PersistAndAssociateOperation:
+	'persist and associate ' newEntity=[jpadsl::Entity] existingEntity=[jpadsl::Entity];
+
+AssociateOperation:
+	'associate ' this=[jpadsl::Entity] that=[jpadsl::Entity];
+
+UpdateOperation:
+	'update ' this=[jpadsl::Entity];
+
+DeleteOperation:
+	'delete ' this=[jpadsl::Entity];
 	
 importedNamespace :
 	QualifiedName  ('.' '*')?;
