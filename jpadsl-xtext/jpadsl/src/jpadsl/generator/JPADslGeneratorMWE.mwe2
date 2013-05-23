@@ -3,8 +3,8 @@ module jpadsl.generator.JPADslGeneratorMWE
 
 import org.eclipse.emf.mwe.utils.*
 
-var targetDir 
-var modelPath
+var targetDir = "/home/alex/xtext-upgrade/brixton-ultimate/generated-sources"
+var modelPath = "/home/alex/xtext-upgrade/brixton-ultimate/dsl-src"
 
 Workflow {
 

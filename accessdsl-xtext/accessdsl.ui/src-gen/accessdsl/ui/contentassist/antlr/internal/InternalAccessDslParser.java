@@ -60257,21 +60257,25 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
         }
     }
     static final String DFA100_eotS =
-        "\30\uffff";
+        "\112\uffff";
     static final String DFA100_eofS =
-        "\30\uffff";
+        "\1\40\111\uffff";
     static final String DFA100_minS =
-        "\1\4\27\0";
+        "\1\4\37\0\52\uffff";
     static final String DFA100_maxS =
-        "\1\142\27\0";
+        "\1\142\37\0\52\uffff";
     static final String DFA100_acceptS =
-        "\30\uffff";
+        "\40\uffff\1\2\50\uffff\1\1";
     static final String DFA100_specialS =
-        "\30\uffff}>";
+        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
+        "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
+        "\1\32\1\33\1\34\1\35\1\36\52\uffff}>";
     static final String[] DFA100_transitionS = {
-            "\1\1\1\22\1\23\1\24\1\26\20\uffff\1\14\7\uffff\1\10\1\7\4\uffff"+
-            "\1\6\2\uffff\1\2\1\3\1\4\1\5\1\15\1\20\1\uffff\1\12\24\uffff"+
-            "\1\16\1\17\4\uffff\1\13\7\uffff\1\11\1\25\14\uffff\1\21",
+            "\1\1\1\22\1\23\1\24\1\26\5\uffff\13\40\1\14\7\40\1\10\1\7\4"+
+            "\40\1\6\2\40\1\2\1\3\1\4\1\5\1\15\1\20\1\uffff\1\12\1\40\6\uffff"+
+            "\1\37\2\40\10\uffff\2\40\1\16\1\17\2\40\1\30\1\40\1\13\3\40"+
+            "\1\31\1\32\1\33\1\uffff\1\11\1\25\1\27\1\34\1\35\1\36\2\40\2"+
+            "\uffff\2\40\1\uffff\1\40\1\21",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -60294,7 +60298,57 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
-            "\1\uffff"
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
     };
 
     static final short[] DFA100_eot = DFA.unpackEncodedString(DFA100_eotS);
@@ -60328,6 +60382,482 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
         }
         public String getDescription() {
             return "15309:1: ( rule__XReturnExpression__ExpressionAssignment_2 )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA100_1 = input.LA(1);
+
+                         
+                        int index100_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA100_2 = input.LA(1);
+
+                         
+                        int index100_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA100_3 = input.LA(1);
+
+                         
+                        int index100_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA100_4 = input.LA(1);
+
+                         
+                        int index100_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA100_5 = input.LA(1);
+
+                         
+                        int index100_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA100_6 = input.LA(1);
+
+                         
+                        int index100_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA100_7 = input.LA(1);
+
+                         
+                        int index100_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA100_8 = input.LA(1);
+
+                         
+                        int index100_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA100_9 = input.LA(1);
+
+                         
+                        int index100_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA100_10 = input.LA(1);
+
+                         
+                        int index100_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA100_11 = input.LA(1);
+
+                         
+                        int index100_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA100_12 = input.LA(1);
+
+                         
+                        int index100_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA100_13 = input.LA(1);
+
+                         
+                        int index100_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA100_14 = input.LA(1);
+
+                         
+                        int index100_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA100_15 = input.LA(1);
+
+                         
+                        int index100_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA100_16 = input.LA(1);
+
+                         
+                        int index100_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA100_17 = input.LA(1);
+
+                         
+                        int index100_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA100_18 = input.LA(1);
+
+                         
+                        int index100_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA100_19 = input.LA(1);
+
+                         
+                        int index100_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA100_20 = input.LA(1);
+
+                         
+                        int index100_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA100_21 = input.LA(1);
+
+                         
+                        int index100_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA100_22 = input.LA(1);
+
+                         
+                        int index100_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA100_23 = input.LA(1);
+
+                         
+                        int index100_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA100_24 = input.LA(1);
+
+                         
+                        int index100_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA100_25 = input.LA(1);
+
+                         
+                        int index100_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA100_26 = input.LA(1);
+
+                         
+                        int index100_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA100_27 = input.LA(1);
+
+                         
+                        int index100_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA100_28 = input.LA(1);
+
+                         
+                        int index100_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA100_29 = input.LA(1);
+
+                         
+                        int index100_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA100_30 = input.LA(1);
+
+                         
+                        int index100_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA100_31 = input.LA(1);
+
+                         
+                        int index100_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred139_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 32;}
+
+                         
+                        input.seek(index100_31);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 100, _s, input);
+            error(nvae);
+            throw nvae;
         }
     }
     static final String DFA109_eotS =

@@ -1,23 +1,23 @@
-
-datatype String
-
 package entities {
-
-	import entities.*
-
-	entity Tree {
-		
-		unique id treeId
-
-	}	
 	
+	datatype String
+
 	entity Branch {
 		
 		unique id branchId
 		
+		attribute branchName : String
+		
+	}
 	
+	entity Tree {
+		
+		unique id treeId
+		
+		attribute treeName : String
+		
+		one to many using join column branches : Branch
 		
 	}
 
 }
-

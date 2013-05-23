@@ -59,7 +59,7 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 		final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
 		
         «IF !qm.queryParameters.isEmpty()»«FOR qp:qm.queryParameters»
-		query.setParameter("«qp.name»", «qp.name»);
+        query.setParameter("«qp.name»", «qp.name»);
         «ENDFOR»
         «ENDIF»
 		
