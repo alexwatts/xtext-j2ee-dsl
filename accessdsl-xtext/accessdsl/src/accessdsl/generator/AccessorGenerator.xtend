@@ -29,6 +29,7 @@ class AccessorGenerator  {
  
  import «u.^package.name + ".*"»;
  import javax.ejb.*;
+ import javax.persistence.*;
  import java.util.*;
  import java.io.Serializable;
  
@@ -63,7 +64,7 @@ public class «u.name.toFirstUpper() + "Accessor"» {
         «ENDFOR»
         «ENDIF»
 		
-		return new «qm.typeMapping.name»(em.«IF qm instanceof SingleResultQueryMapping»getSingleResult()«ELSE»getResultList()«ENDIF»);
+		return new «qm.typeMapping.name»(query.«IF qm instanceof SingleResultQueryMapping»getSingleResult()«ELSE»getResultList()«ENDIF»);
 		
 	}
 	'''

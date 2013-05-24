@@ -47,7 +47,7 @@ class AccessDslGenerator implements IGenerator {
 					fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + container.name.toFirstUpper + ".java", container.compileContainer(unit))
 				}
 				
-				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "AccessorBean.java", unit.compileAccessor)
+				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "Accessor.java", unit.compileAccessor)
 				
 				fsa.generateFile(unit.^package.name.replaceAll("\\.","/")+"/" + unit.name.toFirstUpper + "EJBAccessorBean.java", unit.compileEjbAccessor)
 				

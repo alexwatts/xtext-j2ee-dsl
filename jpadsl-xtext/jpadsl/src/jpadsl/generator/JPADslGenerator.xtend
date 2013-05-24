@@ -56,6 +56,8 @@ package «e.packageName()»;
  **/
  
 import java.io.Serializable;
+import javax.persistence.*;
+import java.util.*;
 «IF e.cacheable != null»
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
