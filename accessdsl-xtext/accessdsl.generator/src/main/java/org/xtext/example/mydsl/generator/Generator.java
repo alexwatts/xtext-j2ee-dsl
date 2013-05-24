@@ -11,6 +11,10 @@ import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+import java.util.StringTokenizer;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -32,12 +36,26 @@ public class Generator {
 	private JavaIoFileSystemAccess fileAccess;
 	
 	protected void runGenerator(String inputPath, String outputPath) {
+
 		// load the resource
 		ResourceSet set = resourceSetProvider.get();
-		Resource resource = set.getResource(URI.createURI(inputPath), true);
+		
+		StringTokenizer sb = new StringTokenizer(inputPath, ":", false);
+		
+		
+		Resource primaryResource = set.getResource(URI.createURI((String)sb.nextElement()), true);
+		
+		
+		while (sb.hasMoreElements()) {
+				
+primaryResource.getResourceSet().getResources().add(set.getResource(URI.createURI((String)sb.nextElement()), true));
+				
+		}
+			
+		
 
 		// validate the resource
-		List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
+		List<Issue> list = validator.validate(primaryResource, CheckMode.ALL, CancelIndicator.NullImpl);
 		if (!list.isEmpty()) {
 			for (Issue issue : list) {
 				System.err.println(issue);
@@ -47,6 +65,6 @@ public class Generator {
 
 		// configure and start the generator
 		fileAccess.setOutputPath(outputPath);
-		generator.doGenerate(resource, fileAccess);
+		generator.doGenerate(primaryResource, fileAccess);
 	}
 }
