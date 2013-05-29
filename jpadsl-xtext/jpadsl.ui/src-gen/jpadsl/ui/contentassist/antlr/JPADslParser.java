@@ -45,6 +45,8 @@ public class JPADslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getAlternatives(), "rule__Attribute__Alternatives");
 					put(grammarAccess.getInternalAttributeAccess().getAlternatives(), "rule__InternalAttribute__Alternatives");
 					put(grammarAccess.getRelationshipAttributeAccess().getAlternatives(), "rule__RelationshipAttribute__Alternatives");
+					put(grammarAccess.getSingularRelationshipAttributeAccess().getAlternatives(), "rule__SingularRelationshipAttribute__Alternatives");
+					put(grammarAccess.getMultipleRelationshipAttributeAccess().getAlternatives(), "rule__MultipleRelationshipAttribute__Alternatives");
 					put(grammarAccess.getTypedElementAccess().getAlternatives(), "rule__TypedElement__Alternatives");
 					put(grammarAccess.getVisibilityAccess().getAlternatives(), "rule__Visibility__Alternatives");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");

@@ -15,6 +15,10 @@ import org.eclipse.emf.common.util.EList
 
 class AccessDslGeneratorExtensions extends AccessDslExtensions {
 	
-	
+	def String toSingular(String name) {
+
+		return name.substring(0, name.length - 1);
+		
+	}
 		
 }

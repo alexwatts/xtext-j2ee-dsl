@@ -57,7 +57,7 @@ Join:
 ;
  
 FetchJoin:
-	joinSpec=JoinSpec 'FETCH' joinAssociationPathExpression=JPAPathExpression
+	joinSpec=JoinSpec 'FETCH' joinAssociationPathExpression=JPAPathExpression ('AS')? identificationVariable=IdentificationVariable
 ;
  
 JoinSpec:

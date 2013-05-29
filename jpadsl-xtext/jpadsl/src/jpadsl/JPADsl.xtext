@@ -64,7 +64,15 @@ InternalAttribute:
  	ReadOnlyInternalAttribute | UpdatableInternalAttribute | TransientAttribute | IdAttribute;
  	
 RelationshipAttribute:
-	OneToOneRelationshipAttribute | OneToOneMappedByRelationshipAttribute | OneToManyJoinTableRelationshipAttribute | OneToManyMappedByRelationshipAttribute | ManyToOneJoinColumnRelationShipAttribute | ManyToOneJoinTableRelationShipAttribute| ManyToOneMappedByRelationShipAttribute | ManyToManyRelationshipAttribute | ManyToManyMappedByRelationshipAttribute | OneToManyJoinColumnRelationshipAttribute;
+	SingularRelationshipAttribute | MultipleRelationshipAttribute;
+	
+SingularRelationshipAttribute:
+	OneToOneRelationshipAttribute | OneToOneMappedByRelationshipAttribute | ManyToOneJoinColumnRelationShipAttribute | ManyToOneJoinTableRelationShipAttribute| ManyToOneMappedByRelationShipAttribute;
+	
+MultipleRelationshipAttribute:
+		  OneToManyJoinTableRelationshipAttribute | OneToManyMappedByRelationshipAttribute |  ManyToManyRelationshipAttribute | ManyToManyMappedByRelationshipAttribute | OneToManyJoinColumnRelationshipAttribute;
+ 	
+	
 	  
 ReadOnlyInternalAttribute:
 	name=ID ':' type=TypeRef;

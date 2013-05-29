@@ -379,6 +379,7 @@ public class JPAQLDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJoinAccess().getIdentificationVariableAssignment_3(), "rule__Join__IdentificationVariableAssignment_3");
 					put(grammarAccess.getFetchJoinAccess().getJoinSpecAssignment_0(), "rule__FetchJoin__JoinSpecAssignment_0");
 					put(grammarAccess.getFetchJoinAccess().getJoinAssociationPathExpressionAssignment_2(), "rule__FetchJoin__JoinAssociationPathExpressionAssignment_2");
+					put(grammarAccess.getFetchJoinAccess().getIdentificationVariableAssignment_4(), "rule__FetchJoin__IdentificationVariableAssignment_4");
 					put(grammarAccess.getJPAPathExpressionAccess().getRootAssignment_0(), "rule__JPAPathExpression__RootAssignment_0");
 					put(grammarAccess.getJPAPathExpressionAccess().getJpaAttributesAssignment_1_1(), "rule__JPAPathExpression__JpaAttributesAssignment_1_1");
 					put(grammarAccess.getJpaAttributeAccess().getAttributeAssignment(), "rule__JpaAttribute__AttributeAssignment");

@@ -7,6 +7,7 @@ import accessdsl.accessDsl.QueryAndTypeMapping
 import accessdsl.accessDsl.Unit
 import com.google.inject.Inject
 import org.eclipse.xtext.common.types.JvmFormalParameter
+import accessdsl.accessDsl.MultipleResultQueryMapping
 
 class EJBAccessorInterfaceGenerator  {
 	
@@ -38,7 +39,11 @@ public interface «u.name.toFirstUpper() + "EJBAccessor"» {
 	'''
 	
 	def queryMapping(QueryAndTypeMapping qm) '''
+	«IF qm.query instanceof MultipleResultQueryMapping»
+	public List<«qm.typeMapping.name»> «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR» );
+	«ELSE»
 	public «qm.typeMapping.name» «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR» );
+	«ENDIF»
 	'''
 	
 	def queryParameter(JvmFormalParameter qp, JvmFormalParameter last) '''«qp.parameterType.simpleName» «qp.name»«IF qp != last», «ENDIF»'''

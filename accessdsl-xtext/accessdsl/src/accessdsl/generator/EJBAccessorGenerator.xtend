@@ -8,6 +8,7 @@ import accessdsl.accessDsl.Unit
 import com.google.inject.Inject
 import accessdsl.accessDsl.QueryMapping
 import org.eclipse.xtext.common.types.JvmFormalParameter
+import accessdsl.accessDsl.MultipleResultQueryMapping
 
 class EJBAccessorGenerator  {
 	
@@ -24,6 +25,8 @@ class EJBAccessorGenerator  {
  import javax.ejb.*;
  import java.util.*;
  import java.io.Serializable;
+ import java.util.List;
+ import javax.persistence.*;
  
 /**
  * This Accessor class provides access to domain
@@ -49,11 +52,18 @@ public class «u.name.toFirstUpper() + "EJBAccessorBean"» implements  «u.name.
 '''	
 
 def queryMapping(QueryAndTypeMapping qm) '''
+	«IF qm.query instanceof MultipleResultQueryMapping»
+	public List<«qm.typeMapping.name»> «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR»   ) {
+		return accessor.«qm.name»(«FOR qp:qm.queryParameters»«val queryParameterLiteral = queryParameterLiteral(qp,qm.queryParameters.last)»«queryParameterLiteral»«ENDFOR»);
+		
+	}
+	«ELSE»
 	public «qm.typeMapping.name» «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR» ) {
 		
 		return accessor.«qm.name»(«FOR qp:qm.queryParameters»«val queryParameterLiteral = queryParameterLiteral(qp,qm.queryParameters.last)»«queryParameterLiteral»«ENDFOR»);
 		
 	}
+	«ENDIF»
 	'''
 	
 	def queryParameter(JvmFormalParameter qp, JvmFormalParameter last) '''«qp.parameterType.simpleName» «qp.name»«IF qp != last», «ENDIF»'''

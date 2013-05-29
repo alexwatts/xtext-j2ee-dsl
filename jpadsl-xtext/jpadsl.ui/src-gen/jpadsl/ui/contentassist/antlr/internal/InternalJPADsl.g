@@ -588,6 +588,62 @@ finally {
 
 
 
+// Entry rule entryRuleSingularRelationshipAttribute
+entryRuleSingularRelationshipAttribute 
+:
+{ before(grammarAccess.getSingularRelationshipAttributeRule()); }
+	 ruleSingularRelationshipAttribute
+{ after(grammarAccess.getSingularRelationshipAttributeRule()); } 
+	 EOF 
+;
+
+// Rule SingularRelationshipAttribute
+ruleSingularRelationshipAttribute
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getSingularRelationshipAttributeAccess().getAlternatives()); }
+(rule__SingularRelationshipAttribute__Alternatives)
+{ after(grammarAccess.getSingularRelationshipAttributeAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleMultipleRelationshipAttribute
+entryRuleMultipleRelationshipAttribute 
+:
+{ before(grammarAccess.getMultipleRelationshipAttributeRule()); }
+	 ruleMultipleRelationshipAttribute
+{ after(grammarAccess.getMultipleRelationshipAttributeRule()); } 
+	 EOF 
+;
+
+// Rule MultipleRelationshipAttribute
+ruleMultipleRelationshipAttribute
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getMultipleRelationshipAttributeAccess().getAlternatives()); }
+(rule__MultipleRelationshipAttribute__Alternatives)
+{ after(grammarAccess.getMultipleRelationshipAttributeAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleReadOnlyInternalAttribute
 entryRuleReadOnlyInternalAttribute 
 :
@@ -1360,63 +1416,95 @@ rule__RelationshipAttribute__Alternatives
     }
 :
 (
-{ before(grammarAccess.getRelationshipAttributeAccess().getOneToOneRelationshipAttributeParserRuleCall_0()); }
+{ before(grammarAccess.getRelationshipAttributeAccess().getSingularRelationshipAttributeParserRuleCall_0()); }
+	ruleSingularRelationshipAttribute
+{ after(grammarAccess.getRelationshipAttributeAccess().getSingularRelationshipAttributeParserRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getRelationshipAttributeAccess().getMultipleRelationshipAttributeParserRuleCall_1()); }
+	ruleMultipleRelationshipAttribute
+{ after(grammarAccess.getRelationshipAttributeAccess().getMultipleRelationshipAttributeParserRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SingularRelationshipAttribute__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSingularRelationshipAttributeAccess().getOneToOneRelationshipAttributeParserRuleCall_0()); }
 	ruleOneToOneRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getOneToOneRelationshipAttributeParserRuleCall_0()); }
+{ after(grammarAccess.getSingularRelationshipAttributeAccess().getOneToOneRelationshipAttributeParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getOneToOneMappedByRelationshipAttributeParserRuleCall_1()); }
+{ before(grammarAccess.getSingularRelationshipAttributeAccess().getOneToOneMappedByRelationshipAttributeParserRuleCall_1()); }
 	ruleOneToOneMappedByRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getOneToOneMappedByRelationshipAttributeParserRuleCall_1()); }
+{ after(grammarAccess.getSingularRelationshipAttributeAccess().getOneToOneMappedByRelationshipAttributeParserRuleCall_1()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getOneToManyJoinTableRelationshipAttributeParserRuleCall_2()); }
-	ruleOneToManyJoinTableRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getOneToManyJoinTableRelationshipAttributeParserRuleCall_2()); }
-)
-
-    |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getOneToManyMappedByRelationshipAttributeParserRuleCall_3()); }
-	ruleOneToManyMappedByRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getOneToManyMappedByRelationshipAttributeParserRuleCall_3()); }
-)
-
-    |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getManyToOneJoinColumnRelationShipAttributeParserRuleCall_4()); }
+{ before(grammarAccess.getSingularRelationshipAttributeAccess().getManyToOneJoinColumnRelationShipAttributeParserRuleCall_2()); }
 	ruleManyToOneJoinColumnRelationShipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getManyToOneJoinColumnRelationShipAttributeParserRuleCall_4()); }
+{ after(grammarAccess.getSingularRelationshipAttributeAccess().getManyToOneJoinColumnRelationShipAttributeParserRuleCall_2()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getManyToOneJoinTableRelationShipAttributeParserRuleCall_5()); }
+{ before(grammarAccess.getSingularRelationshipAttributeAccess().getManyToOneJoinTableRelationShipAttributeParserRuleCall_3()); }
 	ruleManyToOneJoinTableRelationShipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getManyToOneJoinTableRelationShipAttributeParserRuleCall_5()); }
+{ after(grammarAccess.getSingularRelationshipAttributeAccess().getManyToOneJoinTableRelationShipAttributeParserRuleCall_3()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getManyToOneMappedByRelationShipAttributeParserRuleCall_6()); }
+{ before(grammarAccess.getSingularRelationshipAttributeAccess().getManyToOneMappedByRelationShipAttributeParserRuleCall_4()); }
 	ruleManyToOneMappedByRelationShipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getManyToOneMappedByRelationShipAttributeParserRuleCall_6()); }
+{ after(grammarAccess.getSingularRelationshipAttributeAccess().getManyToOneMappedByRelationShipAttributeParserRuleCall_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MultipleRelationshipAttribute__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getMultipleRelationshipAttributeAccess().getOneToManyJoinTableRelationshipAttributeParserRuleCall_0()); }
+	ruleOneToManyJoinTableRelationshipAttribute
+{ after(grammarAccess.getMultipleRelationshipAttributeAccess().getOneToManyJoinTableRelationshipAttributeParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getManyToManyRelationshipAttributeParserRuleCall_7()); }
+{ before(grammarAccess.getMultipleRelationshipAttributeAccess().getOneToManyMappedByRelationshipAttributeParserRuleCall_1()); }
+	ruleOneToManyMappedByRelationshipAttribute
+{ after(grammarAccess.getMultipleRelationshipAttributeAccess().getOneToManyMappedByRelationshipAttributeParserRuleCall_1()); }
+)
+
+    |(
+{ before(grammarAccess.getMultipleRelationshipAttributeAccess().getManyToManyRelationshipAttributeParserRuleCall_2()); }
 	ruleManyToManyRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getManyToManyRelationshipAttributeParserRuleCall_7()); }
+{ after(grammarAccess.getMultipleRelationshipAttributeAccess().getManyToManyRelationshipAttributeParserRuleCall_2()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getManyToManyMappedByRelationshipAttributeParserRuleCall_8()); }
+{ before(grammarAccess.getMultipleRelationshipAttributeAccess().getManyToManyMappedByRelationshipAttributeParserRuleCall_3()); }
 	ruleManyToManyMappedByRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getManyToManyMappedByRelationshipAttributeParserRuleCall_8()); }
+{ after(grammarAccess.getMultipleRelationshipAttributeAccess().getManyToManyMappedByRelationshipAttributeParserRuleCall_3()); }
 )
 
     |(
-{ before(grammarAccess.getRelationshipAttributeAccess().getOneToManyJoinColumnRelationshipAttributeParserRuleCall_9()); }
+{ before(grammarAccess.getMultipleRelationshipAttributeAccess().getOneToManyJoinColumnRelationshipAttributeParserRuleCall_4()); }
 	ruleOneToManyJoinColumnRelationshipAttribute
-{ after(grammarAccess.getRelationshipAttributeAccess().getOneToManyJoinColumnRelationshipAttributeParserRuleCall_9()); }
+{ after(grammarAccess.getMultipleRelationshipAttributeAccess().getOneToManyJoinColumnRelationshipAttributeParserRuleCall_4()); }
 )
 
 ;

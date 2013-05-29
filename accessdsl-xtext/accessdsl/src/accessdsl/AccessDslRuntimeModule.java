@@ -3,9 +3,18 @@
  */
 package accessdsl;
 
+import accessdsl.generator.AccessDslGenerator;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class AccessDslRuntimeModule extends accessdsl.AbstractAccessDslRuntimeModule {
 
+	@Override
+	public Class<? extends org.eclipse.xtext.generator.IGenerator> bindIGenerator() {
+		return AccessDslGenerator.class;
+	}
+	
 }
+
+	

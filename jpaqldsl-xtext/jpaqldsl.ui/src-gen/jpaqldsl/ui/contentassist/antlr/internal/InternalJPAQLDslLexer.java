@@ -2922,12 +2922,12 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31003:13: ( '`?' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '`?' )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31003:15: '`?' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '`?'
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31082:13: ( '`?' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '`?' )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31082:15: '`?' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '`?'
             {
             match("`?"); 
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31003:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31082:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
             loop1:
             do {
                 int alt1=3;
@@ -2961,7 +2961,7 @@ public class InternalJPAQLDslLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31003:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31082:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2977,7 +2977,7 @@ public class InternalJPAQLDslLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31003:66: ~ ( ( '\\\\' | '\"' ) )
+            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31082:66: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3015,19 +3015,19 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_ORM_UNMANAGED_CONTENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31005:28: ( '<!-- ORM-UNMANAGED-CONTENT -->' ( options {greedy=false; } : . )* '<!-- /ORM-UNMANAGED-CONTENT -->' )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31005:30: '<!-- ORM-UNMANAGED-CONTENT -->' ( options {greedy=false; } : . )* '<!-- /ORM-UNMANAGED-CONTENT -->'
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31084:28: ( '<!-- ORM-UNMANAGED-CONTENT -->' ( options {greedy=false; } : . )* '<!-- /ORM-UNMANAGED-CONTENT -->' )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31084:30: '<!-- ORM-UNMANAGED-CONTENT -->' ( options {greedy=false; } : . )* '<!-- /ORM-UNMANAGED-CONTENT -->'
             {
             match("<!-- ORM-UNMANAGED-CONTENT -->"); 
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31005:63: ( options {greedy=false; } : . )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31084:63: ( options {greedy=false; } : . )*
             loop2:
             do {
                 int alt2=2;
                 alt2 = dfa2.predict(input);
                 switch (alt2) {
             	case 1 :
-            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31005:91: .
+            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31084:91: .
             	    {
             	    matchAny(); 
 
@@ -3057,10 +3057,10 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:12: ( '0x' | '0X' )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:12: ( '0x' | '0X' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -3088,7 +3088,7 @@ public class InternalJPAQLDslLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:13: '0x'
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:13: '0x'
                     {
                     match("0x"); 
 
@@ -3096,7 +3096,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:18: '0X'
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:18: '0X'
                     {
                     match("0X"); 
 
@@ -3106,7 +3106,7 @@ public class InternalJPAQLDslLexer extends Lexer {
 
             }
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt4=0;
             loop4:
             do {
@@ -3144,7 +3144,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                 cnt4++;
             } while (true);
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -3153,10 +3153,10 @@ public class InternalJPAQLDslLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
@@ -3174,7 +3174,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                     }
                     switch (alt5) {
                         case 1 :
-                            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -3198,7 +3198,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31007:84: ( 'l' | 'L' )
+                            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31086:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -3237,11 +3237,11 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31009:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31009:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31088:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31088:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31009:21: ( '0' .. '9' | '_' )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31088:21: ( '0' .. '9' | '_' )*
             loop7:
             do {
                 int alt7=2;
@@ -3290,11 +3290,11 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -3303,7 +3303,7 @@ public class InternalJPAQLDslLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -3314,7 +3314,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:36: ( '+' | '-' )?
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:36: ( '+' | '-' )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -3347,7 +3347,7 @@ public class InternalJPAQLDslLexer extends Lexer {
 
             }
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt10=3;
             int LA10_0 = input.LA(1);
 
@@ -3359,7 +3359,7 @@ public class InternalJPAQLDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -3383,7 +3383,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31011:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31090:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -3416,10 +3416,10 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31013:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31013:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31092:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31092:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31013:11: ( '^' )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31092:11: ( '^' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -3428,7 +3428,7 @@ public class InternalJPAQLDslLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31013:11: '^'
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31092:11: '^'
                     {
                     match('^'); 
 
@@ -3446,7 +3446,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31013:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31092:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop12:
             do {
                 int alt12=2;
@@ -3495,12 +3495,12 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31015:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31015:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31094:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31094:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31015:24: ( options {greedy=false; } : . )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31094:24: ( options {greedy=false; } : . )*
             loop13:
             do {
                 int alt13=2;
@@ -3525,7 +3525,7 @@ public class InternalJPAQLDslLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31015:52: .
+            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31094:52: .
             	    {
             	    matchAny(); 
 
@@ -3555,12 +3555,12 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -3573,7 +3573,7 @@ public class InternalJPAQLDslLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3593,7 +3593,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:40: ( ( '\\r' )? '\\n' )?
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:40: ( ( '\\r' )? '\\n' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -3602,9 +3602,9 @@ public class InternalJPAQLDslLexer extends Lexer {
             }
             switch (alt16) {
                 case 1 :
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:41: ( '\\r' )? '\\n'
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:41: ( '\\r' )? '\\n'
                     {
-                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:41: ( '\\r' )?
+                    // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:41: ( '\\r' )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -3613,7 +3613,7 @@ public class InternalJPAQLDslLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31017:41: '\\r'
+                            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31096:41: '\\r'
                             {
                             match('\r'); 
 
@@ -3645,10 +3645,10 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31019:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31019:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31098:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31098:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31019:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31098:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt17=0;
             loop17:
             do {
@@ -3702,8 +3702,8 @@ public class InternalJPAQLDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31021:16: ( . )
-            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31021:18: .
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31100:16: ( . )
+            // ../jpaqldsl.ui/src-gen/jpaqldsl/ui/contentassist/antlr/internal/InternalJPAQLDsl.g:31100:18: .
             {
             matchAny(); 
 
@@ -4804,7 +4804,7 @@ public class InternalJPAQLDslLexer extends Lexer {
             this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "()* loopback of 31005:63: ( options {greedy=false; } : . )*";
+            return "()* loopback of 31084:63: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

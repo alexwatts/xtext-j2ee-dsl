@@ -15,6 +15,9 @@ import accessdsl.accessDsl.PersistOperation
 import accessdsl.accessDsl.StateOperation
 import accessdsl.accessDsl.PersistAndAssociateOperation
 import accessdsl.accessDsl.AssociateOperation
+import jpadsl.jPADsl.RelationshipAttribute
+import jpadsl.jPADsl.SingularRelationshipAttribute
+import jpadsl.jPADsl.MultipleRelationshipAttribute
 
 class AccessorGenerator  {
 	
@@ -55,6 +58,24 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 '''	
 
 	def queryMapping(QueryAndTypeMapping qm) '''
+	
+	«IF qm.query instanceof MultipleResultQueryMapping»
+	public List<«qm.typeMapping.name»> «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR»   ) {
+		
+		final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
+		
+		List<«qm.typeMapping.name»> containers = new ArrayList<«qm.typeMapping.name»>();
+		
+		List<Object[]> results = (List<Object[]>) query.getResultList();
+		
+		for (Object[] row : results) {
+			containers.add(new «qm.typeMapping.name»(row));
+		}
+		
+		return containers;
+		
+	}
+	«ELSE»
 	public «qm.typeMapping.name» «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR» ) {
 		
 		final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
@@ -64,9 +85,10 @@ public class «u.name.toFirstUpper() + "Accessor"» {
         «ENDFOR»
         «ENDIF»
 		
-		return new «qm.typeMapping.name»(query.«IF qm instanceof SingleResultQueryMapping»getSingleResult()«ELSE»getResultList()«ENDIF»);
+		return new «qm.typeMapping.name»(query.getSingleResult());
 		
 	}
+	«ENDIF»
 	'''
 	
 	def queryParameter(JvmFormalParameter qp, JvmFormalParameter last) '''«qp.parameterType.simpleName» «qp.name»«IF qp != last», «ENDIF»'''
@@ -86,6 +108,7 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 	def dispatch stateOperation(PersistOperation pe, String name)'''
 	public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower») {
 		em.persist(«pe.this.name.toFirstLower»);
+		return «pe.this.name.toFirstLower»;
 	}
 	'''
 
@@ -93,15 +116,26 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 	public «pe.newEntity.name» «name» («pe.newEntity.name» «pe.newEntity.name.toFirstLower», «pe.existingEntity.name» «pe.existingEntity.name.toFirstLower») {
 		em.persist(«pe.newEntity.name.toFirstLower»);
 		
-		«pe.existingEntity.name.toFirstLower».set«pe.associaltion.name.toFirstUpper»(«pe.newEntity.name.toFirstLower»);
+		«pe.existingEntity.name.toFirstLower»«val setOrAddMethodCall = setOrAddMethodCall(pe.associaltion, pe.associaltion.name.toFirstUpper, pe.newEntity.name.toFirstLower)»«setOrAddMethodCall»
+		
+		return «pe.newEntity.name.toFirstLower»;
 	}
 	'''
 	
 	def dispatch stateOperation(AssociateOperation pe, String name)'''
 	public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower», «pe.that.name» «pe.that.name.toFirstLower») {
 		
-		«pe.this.name.toFirstLower».set«pe.associaltion.name.toFirstUpper»(«pe.that.name.toFirstLower»);
+		«pe.this.name.toFirstLower»«val setOrAddMethodCall = setOrAddMethodCall(pe.associaltion, pe.associaltion.name.toFirstUpper, pe.that.name.toFirstLower)»«setOrAddMethodCall»
+		
+		return «pe.this.name.toFirstLower»;
 	}
 	'''
+
+	def dispatch setOrAddMethodCall(RelationshipAttribute re, String associationName, String elementName)''''''
+	
+	def dispatch setOrAddMethodCall(SingularRelationshipAttribute re, String associationName, String elementName)'''.set«associationName»(«elementName»);'''
+	
+	def dispatch setOrAddMethodCall(MultipleRelationshipAttribute re, String associationName, String elementName)'''.add«re.type.referenced.name.toFirstUpper»(«elementName»);'''
+	
 
 }

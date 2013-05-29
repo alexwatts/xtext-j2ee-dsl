@@ -7776,6 +7776,7 @@ rule__FetchJoin__Group__2
     }
 :
 	rule__FetchJoin__Group__2__Impl
+	rule__FetchJoin__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -7796,6 +7797,69 @@ rule__FetchJoin__Group__2__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__FetchJoin__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__FetchJoin__Group__3__Impl
+	rule__FetchJoin__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FetchJoin__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFetchJoinAccess().getASKeyword_3()); }
+(
+	'AS' 
+)?
+{ after(grammarAccess.getFetchJoinAccess().getASKeyword_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__FetchJoin__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__FetchJoin__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FetchJoin__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFetchJoinAccess().getIdentificationVariableAssignment_4()); }
+(rule__FetchJoin__IdentificationVariableAssignment_4)
+{ after(grammarAccess.getFetchJoinAccess().getIdentificationVariableAssignment_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -26668,6 +26732,21 @@ rule__FetchJoin__JoinAssociationPathExpressionAssignment_2
 (
 { before(grammarAccess.getFetchJoinAccess().getJoinAssociationPathExpressionJPAPathExpressionParserRuleCall_2_0()); }
 	ruleJPAPathExpression{ after(grammarAccess.getFetchJoinAccess().getJoinAssociationPathExpressionJPAPathExpressionParserRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FetchJoin__IdentificationVariableAssignment_4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFetchJoinAccess().getIdentificationVariableIdentificationVariableParserRuleCall_4_0()); }
+	ruleIdentificationVariable{ after(grammarAccess.getFetchJoinAccess().getIdentificationVariableIdentificationVariableParserRuleCall_4_0()); }
 )
 
 ;
