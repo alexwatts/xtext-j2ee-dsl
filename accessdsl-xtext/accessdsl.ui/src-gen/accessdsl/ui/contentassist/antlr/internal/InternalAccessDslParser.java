@@ -60257,22 +60257,24 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
         }
     }
     static final String DFA100_eotS =
-        "\34\uffff";
+        "\36\uffff";
     static final String DFA100_eofS =
-        "\34\uffff";
+        "\36\uffff";
     static final String DFA100_minS =
-        "\1\4\33\0";
+        "\1\4\35\0";
     static final String DFA100_maxS =
-        "\1\142\33\0";
+        "\1\142\35\0";
     static final String DFA100_acceptS =
-        "\34\uffff";
+        "\36\uffff";
     static final String DFA100_specialS =
-        "\34\uffff}>";
+        "\36\uffff}>";
     static final String[] DFA100_transitionS = {
             "\1\1\1\22\1\23\1\24\1\26\20\uffff\1\14\7\uffff\1\10\1\7\4\uffff"+
             "\1\6\2\uffff\1\2\1\3\1\4\1\5\1\15\1\20\1\uffff\1\12\24\uffff"+
-            "\1\16\1\17\2\uffff\1\30\1\uffff\1\13\3\uffff\1\31\1\32\2\uffff"+
-            "\1\11\1\25\1\27\13\uffff\1\21",
+            "\1\16\1\17\2\uffff\1\30\1\uffff\1\13\3\uffff\1\31\1\32\1\33"+
+            "\1\uffff\1\11\1\25\1\27\1\34\12\uffff\1\21",
+            "\1\uffff",
+            "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",

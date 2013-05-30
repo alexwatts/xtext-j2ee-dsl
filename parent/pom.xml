@@ -57,6 +57,7 @@
 		<module>../accessdsl-xtext/accessdsl.ui</module>
 		<module>../accessdsl-xtext/accessdsl.standalone</module>
 		<module>../accessdsl-xtext/accessdsl.generator</module>
+                <module>../environment-example/pom.xml</module>
 	</modules>
 
 	<build>
