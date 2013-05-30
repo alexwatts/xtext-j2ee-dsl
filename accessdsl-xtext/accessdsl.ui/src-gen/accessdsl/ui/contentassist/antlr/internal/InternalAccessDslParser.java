@@ -14426,24 +14426,34 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QueryAndTypeMapping__Group__1__Impl"
-    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4438:1: rule__QueryAndTypeMapping__Group__1__Impl : ( '{' ) ;
+    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4438:1: rule__QueryAndTypeMapping__Group__1__Impl : ( ( rule__QueryAndTypeMapping__NameAssignment_1 ) ) ;
     public final void rule__QueryAndTypeMapping__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4442:1: ( ( '{' ) )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4443:1: ( '{' )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4442:1: ( ( ( rule__QueryAndTypeMapping__NameAssignment_1 ) ) )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4443:1: ( ( rule__QueryAndTypeMapping__NameAssignment_1 ) )
             {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4443:1: ( '{' )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4444:1: '{'
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4443:1: ( ( rule__QueryAndTypeMapping__NameAssignment_1 ) )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4444:1: ( rule__QueryAndTypeMapping__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQueryAndTypeMappingAccess().getLeftCurlyBracketKeyword_1()); 
+               before(grammarAccess.getQueryAndTypeMappingAccess().getNameAssignment_1()); 
             }
-            match(input,49,FOLLOW_49_in_rule__QueryAndTypeMapping__Group__1__Impl9532); if (state.failed) return ;
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4445:1: ( rule__QueryAndTypeMapping__NameAssignment_1 )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4445:2: rule__QueryAndTypeMapping__NameAssignment_1
+            {
+            pushFollow(FOLLOW_rule__QueryAndTypeMapping__NameAssignment_1_in_rule__QueryAndTypeMapping__Group__1__Impl9531);
+            rule__QueryAndTypeMapping__NameAssignment_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQueryAndTypeMappingAccess().getLeftCurlyBracketKeyword_1()); 
+               after(grammarAccess.getQueryAndTypeMappingAccess().getNameAssignment_1()); 
             }
 
             }
@@ -14467,21 +14477,21 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QueryAndTypeMapping__Group__2"
-    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4457:1: rule__QueryAndTypeMapping__Group__2 : rule__QueryAndTypeMapping__Group__2__Impl rule__QueryAndTypeMapping__Group__3 ;
+    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4455:1: rule__QueryAndTypeMapping__Group__2 : rule__QueryAndTypeMapping__Group__2__Impl rule__QueryAndTypeMapping__Group__3 ;
     public final void rule__QueryAndTypeMapping__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4461:1: ( rule__QueryAndTypeMapping__Group__2__Impl rule__QueryAndTypeMapping__Group__3 )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4462:2: rule__QueryAndTypeMapping__Group__2__Impl rule__QueryAndTypeMapping__Group__3
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4459:1: ( rule__QueryAndTypeMapping__Group__2__Impl rule__QueryAndTypeMapping__Group__3 )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4460:2: rule__QueryAndTypeMapping__Group__2__Impl rule__QueryAndTypeMapping__Group__3
             {
-            pushFollow(FOLLOW_rule__QueryAndTypeMapping__Group__2__Impl_in_rule__QueryAndTypeMapping__Group__29563);
+            pushFollow(FOLLOW_rule__QueryAndTypeMapping__Group__2__Impl_in_rule__QueryAndTypeMapping__Group__29561);
             rule__QueryAndTypeMapping__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__QueryAndTypeMapping__Group__3_in_rule__QueryAndTypeMapping__Group__29566);
+            pushFollow(FOLLOW_rule__QueryAndTypeMapping__Group__3_in_rule__QueryAndTypeMapping__Group__29564);
             rule__QueryAndTypeMapping__Group__3();
 
             state._fsp--;
@@ -14505,34 +14515,24 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QueryAndTypeMapping__Group__2__Impl"
-    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4469:1: rule__QueryAndTypeMapping__Group__2__Impl : ( ( rule__QueryAndTypeMapping__NameAssignment_2 ) ) ;
+    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4467:1: rule__QueryAndTypeMapping__Group__2__Impl : ( '{' ) ;
     public final void rule__QueryAndTypeMapping__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4473:1: ( ( ( rule__QueryAndTypeMapping__NameAssignment_2 ) ) )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4474:1: ( ( rule__QueryAndTypeMapping__NameAssignment_2 ) )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4471:1: ( ( '{' ) )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4472:1: ( '{' )
             {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4474:1: ( ( rule__QueryAndTypeMapping__NameAssignment_2 ) )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4475:1: ( rule__QueryAndTypeMapping__NameAssignment_2 )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4472:1: ( '{' )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4473:1: '{'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQueryAndTypeMappingAccess().getNameAssignment_2()); 
+               before(grammarAccess.getQueryAndTypeMappingAccess().getLeftCurlyBracketKeyword_2()); 
             }
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4476:1: ( rule__QueryAndTypeMapping__NameAssignment_2 )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:4476:2: rule__QueryAndTypeMapping__NameAssignment_2
-            {
-            pushFollow(FOLLOW_rule__QueryAndTypeMapping__NameAssignment_2_in_rule__QueryAndTypeMapping__Group__2__Impl9593);
-            rule__QueryAndTypeMapping__NameAssignment_2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
+            match(input,49,FOLLOW_49_in_rule__QueryAndTypeMapping__Group__2__Impl9592); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQueryAndTypeMappingAccess().getNameAssignment_2()); 
+               after(grammarAccess.getQueryAndTypeMappingAccess().getLeftCurlyBracketKeyword_2()); 
             }
 
             }
@@ -44158,37 +44158,7 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
             }
             // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:15309:1: ( rule__XReturnExpression__ExpressionAssignment_2 )?
             int alt100=2;
-            switch ( input.LA(1) ) {
-                case RULE_ID:
-                    {
-                    int LA100_1 = input.LA(2);
-
-
-                    }
-                    break;
-                case 42:
-                    {
-                    int LA100_2 = input.LA(2);
-
-
-                    }
-                    break;
-                case 43:
-                    {
-                    int LA100_3 = input.LA(2);
-
-
-                    }
-                    break;
-                case 44:
-                    {
-                    int LA100_4 = input.LA(2);
-
-
-                    }
-                    break;
-            }
-
+            alt100 = dfa100.predict(input);
             switch (alt100) {
                 case 1 :
                     // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:15309:2: rule__XReturnExpression__ExpressionAssignment_2
@@ -50716,9 +50686,9 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__ContainedEntity__ContainedAssignment"
 
 
-    // $ANTLR start "rule__QueryAndTypeMapping__NameAssignment_2"
-    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17690:1: rule__QueryAndTypeMapping__NameAssignment_2 : ( RULE_ID ) ;
-    public final void rule__QueryAndTypeMapping__NameAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__QueryAndTypeMapping__NameAssignment_1"
+    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17690:1: rule__QueryAndTypeMapping__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__QueryAndTypeMapping__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -50730,11 +50700,11 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
             // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17696:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQueryAndTypeMappingAccess().getNameIDTerminalRuleCall_2_0()); 
+               before(grammarAccess.getQueryAndTypeMappingAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QueryAndTypeMapping__NameAssignment_235584); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QueryAndTypeMapping__NameAssignment_135584); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQueryAndTypeMappingAccess().getNameIDTerminalRuleCall_2_0()); 
+               after(grammarAccess.getQueryAndTypeMappingAccess().getNameIDTerminalRuleCall_1_0()); 
             }
 
             }
@@ -50754,7 +50724,7 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__QueryAndTypeMapping__NameAssignment_2"
+    // $ANTLR end "rule__QueryAndTypeMapping__NameAssignment_1"
 
 
     // $ANTLR start "rule__QueryAndTypeMapping__ImportsAssignment_3"
@@ -58415,6 +58385,7 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
     protected DFA93 dfa93 = new DFA93(this);
     protected DFA94 dfa94 = new DFA94(this);
     protected DFA95 dfa95 = new DFA95(this);
+    protected DFA100 dfa100 = new DFA100(this);
     protected DFA109 dfa109 = new DFA109(this);
     static final String DFA9_eotS =
         "\14\uffff";
@@ -60285,6 +60256,85 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
             throw nvae;
         }
     }
+    static final String DFA100_eotS =
+        "\34\uffff";
+    static final String DFA100_eofS =
+        "\34\uffff";
+    static final String DFA100_minS =
+        "\1\4\33\0";
+    static final String DFA100_maxS =
+        "\1\142\33\0";
+    static final String DFA100_acceptS =
+        "\34\uffff";
+    static final String DFA100_specialS =
+        "\34\uffff}>";
+    static final String[] DFA100_transitionS = {
+            "\1\1\1\22\1\23\1\24\1\26\20\uffff\1\14\7\uffff\1\10\1\7\4\uffff"+
+            "\1\6\2\uffff\1\2\1\3\1\4\1\5\1\15\1\20\1\uffff\1\12\24\uffff"+
+            "\1\16\1\17\2\uffff\1\30\1\uffff\1\13\3\uffff\1\31\1\32\2\uffff"+
+            "\1\11\1\25\1\27\13\uffff\1\21",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff"
+    };
+
+    static final short[] DFA100_eot = DFA.unpackEncodedString(DFA100_eotS);
+    static final short[] DFA100_eof = DFA.unpackEncodedString(DFA100_eofS);
+    static final char[] DFA100_min = DFA.unpackEncodedStringToUnsignedChars(DFA100_minS);
+    static final char[] DFA100_max = DFA.unpackEncodedStringToUnsignedChars(DFA100_maxS);
+    static final short[] DFA100_accept = DFA.unpackEncodedString(DFA100_acceptS);
+    static final short[] DFA100_special = DFA.unpackEncodedString(DFA100_specialS);
+    static final short[][] DFA100_transition;
+
+    static {
+        int numStates = DFA100_transitionS.length;
+        DFA100_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA100_transition[i] = DFA.unpackEncodedString(DFA100_transitionS[i]);
+        }
+    }
+
+    class DFA100 extends DFA {
+
+        public DFA100(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 100;
+            this.eot = DFA100_eot;
+            this.eof = DFA100_eof;
+            this.min = DFA100_min;
+            this.max = DFA100_max;
+            this.accept = DFA100_accept;
+            this.special = DFA100_special;
+            this.transition = DFA100_transition;
+        }
+        public String getDescription() {
+            return "15309:1: ( rule__XReturnExpression__ExpressionAssignment_2 )?";
+        }
+    }
     static final String DFA109_eotS =
         "\112\uffff";
     static final String DFA109_eofS =
@@ -60877,15 +60927,15 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_rule__ContainerElement__EntityAssignment_1_in_rule__ContainerElement__Group__1__Impl9346 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContainerElement__Group__2__Impl_in_rule__ContainerElement__Group__29376 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContainerElement__AliasAssignment_2_in_rule__ContainerElement__Group__2__Impl9403 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__0__Impl_in_rule__QueryAndTypeMapping__Group__09439 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__0__Impl_in_rule__QueryAndTypeMapping__Group__09439 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__1_in_rule__QueryAndTypeMapping__Group__09442 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_54_in_rule__QueryAndTypeMapping__Group__0__Impl9470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__1__Impl_in_rule__QueryAndTypeMapping__Group__19501 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__1__Impl_in_rule__QueryAndTypeMapping__Group__19501 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__2_in_rule__QueryAndTypeMapping__Group__19504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_rule__QueryAndTypeMapping__Group__1__Impl9532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__2__Impl_in_rule__QueryAndTypeMapping__Group__29563 = new BitSet(new long[]{0x3000100000000000L});
-    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__3_in_rule__QueryAndTypeMapping__Group__29566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__NameAssignment_2_in_rule__QueryAndTypeMapping__Group__2__Impl9593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__NameAssignment_1_in_rule__QueryAndTypeMapping__Group__1__Impl9531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__2__Impl_in_rule__QueryAndTypeMapping__Group__29561 = new BitSet(new long[]{0x3000100000000000L});
+    public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__3_in_rule__QueryAndTypeMapping__Group__29564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_rule__QueryAndTypeMapping__Group__2__Impl9592 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__3__Impl_in_rule__QueryAndTypeMapping__Group__39623 = new BitSet(new long[]{0x3000100000000000L});
     public static final BitSet FOLLOW_rule__QueryAndTypeMapping__Group__4_in_rule__QueryAndTypeMapping__Group__39626 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__QueryAndTypeMapping__ImportsAssignment_3_in_rule__QueryAndTypeMapping__Group__3__Impl9653 = new BitSet(new long[]{0x0000100000000002L});
@@ -61939,7 +61989,7 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_ruleContainedEntity_in_rule__ContainerElement__EntityAssignment_135483 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__ContainerElement__AliasAssignment_235514 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ContainedEntity__ContainedAssignment35549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__QueryAndTypeMapping__NameAssignment_235584 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__QueryAndTypeMapping__NameAssignment_135584 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImport_in_rule__QueryAndTypeMapping__ImportsAssignment_335615 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQueryMapping_in_rule__QueryAndTypeMapping__QueryAssignment_435646 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__QueryAndTypeMapping__TypeMappingAssignment_635681 = new BitSet(new long[]{0x0000000000000002L});

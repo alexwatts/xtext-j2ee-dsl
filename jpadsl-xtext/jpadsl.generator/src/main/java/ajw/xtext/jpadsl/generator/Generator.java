@@ -1,4 +1,4 @@
-package org.xtext.example.mydsl.generator;
+package ajw.xtext.jpadsl.generator;
 
 import java.util.List;
 

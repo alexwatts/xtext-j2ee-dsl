@@ -35,8 +35,7 @@ ContainedEntity:
 		contained=[jpadsl::Entity];
 		
 QueryAndTypeMapping:
-		'query and type mapping' '{'
-				name=ID
+		'query and type mapping' name=ID '{'
 				(imports+=Import)*
 				query=QueryMapping
 				'return -> ' typeMapping=[Container]

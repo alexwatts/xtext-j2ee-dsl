@@ -261,7 +261,7 @@ public class AccessDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getContainerElementAccess().getEntityAssignment_1(), "rule__ContainerElement__EntityAssignment_1");
 					put(grammarAccess.getContainerElementAccess().getAliasAssignment_2(), "rule__ContainerElement__AliasAssignment_2");
 					put(grammarAccess.getContainedEntityAccess().getContainedAssignment(), "rule__ContainedEntity__ContainedAssignment");
-					put(grammarAccess.getQueryAndTypeMappingAccess().getNameAssignment_2(), "rule__QueryAndTypeMapping__NameAssignment_2");
+					put(grammarAccess.getQueryAndTypeMappingAccess().getNameAssignment_1(), "rule__QueryAndTypeMapping__NameAssignment_1");
 					put(grammarAccess.getQueryAndTypeMappingAccess().getImportsAssignment_3(), "rule__QueryAndTypeMapping__ImportsAssignment_3");
 					put(grammarAccess.getQueryAndTypeMappingAccess().getQueryAssignment_4(), "rule__QueryAndTypeMapping__QueryAssignment_4");
 					put(grammarAccess.getQueryAndTypeMappingAccess().getTypeMappingAssignment_6(), "rule__QueryAndTypeMapping__TypeMappingAssignment_6");

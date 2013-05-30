@@ -4,3 +4,4 @@ bin/
 target/
 src-gen/
 xtend-gen/
+generated-sources/

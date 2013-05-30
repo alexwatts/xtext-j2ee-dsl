@@ -1,4 +1,4 @@
-package org.xtext.example.mydsl.generator;
+package ajw.xtext.jpadsl.generator;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
