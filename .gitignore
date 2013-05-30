@@ -5,3 +5,5 @@ target/
 src-gen/
 xtend-gen/
 generated-sources/
+!environment-example/src/test/xtend-gen/
+*._trace

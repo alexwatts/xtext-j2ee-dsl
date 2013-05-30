@@ -1,0 +1,69 @@
+import entities.*
+import entities.Tree.*
+import entities.Branch.*
+
+access unit entities {
+	
+	package name entities
+	
+	container TreeContainer {
+		
+		element Tree "tree"
+
+	}
+	
+	container BlahContainer {
+		
+		element Tree "tree"
+
+	}
+	
+	query and type mapping getAllTreesAndBranches {
+	
+		multiple result mapping getAllTreesWithBanches
+		
+		return -> TreeContainer
+		
+		query parameters -> {
+			()
+		}
+		
+	}
+	
+	query and type mapping getAllTrees {
+		
+		multiple result mapping getAllTrees
+		
+		return -> TreeContainer
+		
+		query parameters -> {
+			()
+		}
+		
+	}
+	
+	state adjustment {
+		
+		addTree
+		
+		persist Tree
+		
+	}
+	
+	state adjustment {
+		
+		addBranch
+		
+		persist Branch
+		
+	}
+	
+	state adjustment {
+		
+		addTreeToBranch
+		
+		persist and associate Branch branches Tree
+		
+	}
+	
+}
