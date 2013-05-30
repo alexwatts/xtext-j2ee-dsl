@@ -6766,11 +6766,9 @@ rule__Model__Group__8__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getEntityClassKeyword_8()); }
-
-	'<entity class="' 
-
-{ after(grammarAccess.getModelAccess().getEntityClassKeyword_8()); }
+{ before(grammarAccess.getModelAccess().getNamedQueriesAssignment_8()); }
+(rule__Model__NamedQueriesAssignment_8)*
+{ after(grammarAccess.getModelAccess().getNamedQueriesAssignment_8()); }
 )
 
 ;
@@ -6785,7 +6783,6 @@ rule__Model__Group__9
     }
 :
 	rule__Model__Group__9__Impl
-	rule__Model__Group__10
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -6797,142 +6794,15 @@ rule__Model__Group__9__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getEntityAssignment_9()); }
-(rule__Model__EntityAssignment_9)
-{ after(grammarAccess.getModelAccess().getEntityAssignment_9()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Model__Group__10
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Model__Group__10__Impl
-	rule__Model__Group__11
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__10__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getModelAccess().getQuotationMarkGreaterThanSignKeyword_10()); }
-
-	'">' 
-
-{ after(grammarAccess.getModelAccess().getQuotationMarkGreaterThanSignKeyword_10()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Model__Group__11
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Model__Group__11__Impl
-	rule__Model__Group__12
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__11__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getModelAccess().getNamedQueriesAssignment_11()); }
-(rule__Model__NamedQueriesAssignment_11)*
-{ after(grammarAccess.getModelAccess().getNamedQueriesAssignment_11()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Model__Group__12
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Model__Group__12__Impl
-	rule__Model__Group__13
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__12__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getModelAccess().getEntityKeyword_12()); }
-
-	'</entity>' 
-
-{ after(grammarAccess.getModelAccess().getEntityKeyword_12()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Model__Group__13
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Model__Group__13__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__Group__13__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getModelAccess().getORM_UNMANAGED_CONTENTTerminalRuleCall_13()); }
+{ before(grammarAccess.getModelAccess().getORM_UNMANAGED_CONTENTTerminalRuleCall_9()); }
 (	RULE_ORM_UNMANAGED_CONTENT)?
-{ after(grammarAccess.getModelAccess().getORM_UNMANAGED_CONTENTTerminalRuleCall_13()); }
+{ after(grammarAccess.getModelAccess().getORM_UNMANAGED_CONTENTTerminalRuleCall_9()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -26444,33 +26314,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Model__EntityAssignment_9
+rule__Model__NamedQueriesAssignment_8
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getEntityEntityCrossReference_9_0()); }
-(
-{ before(grammarAccess.getModelAccess().getEntityEntityIDTerminalRuleCall_9_0_1()); }
-	RULE_ID{ after(grammarAccess.getModelAccess().getEntityEntityIDTerminalRuleCall_9_0_1()); }
-)
-{ after(grammarAccess.getModelAccess().getEntityEntityCrossReference_9_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Model__NamedQueriesAssignment_11
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getModelAccess().getNamedQueriesNamedQueryParserRuleCall_11_0()); }
-	ruleNamedQuery{ after(grammarAccess.getModelAccess().getNamedQueriesNamedQueryParserRuleCall_11_0()); }
+{ before(grammarAccess.getModelAccess().getNamedQueriesNamedQueryParserRuleCall_8_0()); }
+	ruleNamedQuery{ after(grammarAccess.getModelAccess().getNamedQueriesNamedQueryParserRuleCall_8_0()); }
 )
 
 ;

@@ -13,9 +13,7 @@ imports+=Import*
 'package' name=QualifiedName
 '-->'
 	(ORM_UNMANAGED_CONTENT)?
-	'<entity class="'entity=[jpadsl::Entity]'">'
 	namedQueries+=NamedQuery*
-	'</entity>'
 	(ORM_UNMANAGED_CONTENT)?
 ;
 		

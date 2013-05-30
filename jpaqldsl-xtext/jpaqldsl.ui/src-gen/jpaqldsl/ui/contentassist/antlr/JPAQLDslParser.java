@@ -360,8 +360,7 @@ public class JPAQLDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getXmlDescriptorAssignment_0(), "rule__Model__XmlDescriptorAssignment_0");
 					put(grammarAccess.getModelAccess().getImportsAssignment_3(), "rule__Model__ImportsAssignment_3");
 					put(grammarAccess.getModelAccess().getNameAssignment_5(), "rule__Model__NameAssignment_5");
-					put(grammarAccess.getModelAccess().getEntityAssignment_9(), "rule__Model__EntityAssignment_9");
-					put(grammarAccess.getModelAccess().getNamedQueriesAssignment_11(), "rule__Model__NamedQueriesAssignment_11");
+					put(grammarAccess.getModelAccess().getNamedQueriesAssignment_8(), "rule__Model__NamedQueriesAssignment_8");
 					put(grammarAccess.getNamedQueryAccess().getNameAssignment_1(), "rule__NamedQuery__NameAssignment_1");
 					put(grammarAccess.getNamedQueryAccess().getQlStatementAssignment_4(), "rule__NamedQuery__QlStatementAssignment_4");
 					put(grammarAccess.getQLStatementAccess().getSelectStatementsAssignment(), "rule__QLStatement__SelectStatementsAssignment");

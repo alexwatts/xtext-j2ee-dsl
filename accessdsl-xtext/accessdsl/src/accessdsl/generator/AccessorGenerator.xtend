@@ -43,6 +43,9 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 
 	//A Constructor which initialises the accessor
 	//and is provided an Entity Manager
+	public «u.name.toFirstUpper() + "Accessor"»(EntityManager em) {
+		this.em = em;
+	}
 
 	«FOR qm:u.querymapping»
 		«val querymapping = queryMapping(qm)»
@@ -66,9 +69,9 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 		
 		List<«qm.typeMapping.name»> containers = new ArrayList<«qm.typeMapping.name»>();
 		
-		List<Object[]> results = (List<Object[]>) query.getResultList();
+		List<Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF»> results = (List<Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF»>) query.getResultList();
 		
-		for (Object[] row : results) {
+		for (Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF» row : results) {
 			containers.add(new «qm.typeMapping.name»(row));
 		}
 		
