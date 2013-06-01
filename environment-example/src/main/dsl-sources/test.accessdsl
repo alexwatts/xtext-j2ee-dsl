@@ -12,6 +12,7 @@ access unit entities {
 
 	}
 	
+	
 	query and type mapping getAllTreesAndBranches {
 	
 		multiple result mapping getAllTreesWithBanches
@@ -23,6 +24,7 @@ access unit entities {
 		}
 		
 	}
+	
 	
 	query and type mapping getAllTrees {
 		

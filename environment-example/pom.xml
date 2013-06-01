@@ -33,9 +33,14 @@
 		<testSourceDirectory>src/test/xtend-gen</testSourceDirectory>
 
 		<testResources>
+		
 			<testResource>
-				<directory>src/test/resources</directory>
+				<directory>src/main/generated-sources</directory>
+				<includes>
+		          <include>META-INF/persistence.xml</include>
+		        </includes>
 			</testResource>
+
 			<testResource>
 				<directory>src/main/dsl-sources</directory>
 			</testResource>

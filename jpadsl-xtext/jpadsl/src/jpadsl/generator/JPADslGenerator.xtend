@@ -6,30 +6,30 @@ package jpadsl.generator
 import com.google.inject.Inject
 import jpadsl.jPADsl.Entity
 import jpadsl.jPADsl.Feature
+import jpadsl.jPADsl.IdAttribute
+import jpadsl.jPADsl.Identifier
 import jpadsl.jPADsl.ManyToManyMappedByRelationshipAttribute
 import jpadsl.jPADsl.ManyToManyRelationshipAttribute
 import jpadsl.jPADsl.ManyToOneJoinColumnRelationShipAttribute
 import jpadsl.jPADsl.ManyToOneJoinTableRelationShipAttribute
 import jpadsl.jPADsl.ManyToOneMappedByRelationShipAttribute
-
+import jpadsl.jPADsl.Model
+import jpadsl.jPADsl.OneToManyJoinColumnRelationshipAttribute
 import jpadsl.jPADsl.OneToManyJoinTableRelationshipAttribute
 import jpadsl.jPADsl.OneToManyMappedByRelationshipAttribute
 import jpadsl.jPADsl.OneToOneMappedByRelationshipAttribute
 import jpadsl.jPADsl.OneToOneRelationshipAttribute
+import jpadsl.jPADsl.PackageDeclaration
 import jpadsl.jPADsl.UpdatableInternalAttribute
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import jpadsl.jPADsl.PackageDeclaration
-import jpadsl.jPADsl.IdAttribute
-import jpadsl.jPADsl.Identifier
-import jpadsl.jPADsl.OneToManyJoinColumnRelationshipAttribute
-import jpadsl.generator.JPADslGeneratorExtensions
-import jpadsl.jPADsl.Model
 
 class JPADslGenerator implements IGenerator {
 	
 	@Inject extension JPADslGeneratorExtensions generatorExtensions
+	
+	@Inject extension PersistenceXMLGenerator persistenceGenerator
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		
@@ -37,6 +37,8 @@ class JPADslGenerator implements IGenerator {
 		var model = resource.contents.head as Model
 		
 		for (packageDeclaration : model.elements.filter(typeof(PackageDeclaration))) {
+			
+			fsa.generateFile("META-INF/persistence.xml", packageDeclaration.compile)
 			
 			for(entity: packageDeclaration.elements.filter(typeof(Entity))) {
 				fsa.generateFile(entity.packageName().replaceAll("\\.","/")+"/" + entity.name + ".java", entity.compile)
