@@ -11,8 +11,15 @@ import jpadsl.jPADsl.PackageDeclaration
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import jpadsl.jPADsl.Type
+import org.eclipse.xtext.common.types.JvmFormalParameter
+import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.common.util.BasicEList
+import com.google.inject.Inject
+import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import org.eclipse.xtext.common.types.JvmTypeReference
 
 class AccessDslExtensions {
+
 	
 	/**
 	 * computes the qualified name if its 

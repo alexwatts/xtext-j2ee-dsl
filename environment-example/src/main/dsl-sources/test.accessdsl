@@ -12,12 +12,6 @@ access unit entities {
 
 	}
 	
-	container BlahContainer {
-		
-		element Tree "tree"
-
-	}
-	
 	query and type mapping getAllTreesAndBranches {
 	
 		multiple result mapping getAllTreesWithBanches
@@ -41,6 +35,7 @@ access unit entities {
 		}
 		
 	}
+	
 	
 	state adjustment {
 		

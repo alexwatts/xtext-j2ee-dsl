@@ -2,6 +2,7 @@ grammar accessdsl.AccessDsl with org.eclipse.xtext.xbase.Xbase
 
 import 'classpath:/jpadsl/JPADsl.ecore' as jpadsl
 import 'classpath:/jpaqldsl/JPAQLDsl.ecore' as jpaqldsl
+import "http://www.eclipse.org/xtext/common/JavaVMTypes"
 
 generate accessDsl "http://www.AccessDsl.accessdsl"
 
@@ -40,9 +41,10 @@ QueryAndTypeMapping:
 				query=QueryMapping
 				'return -> ' typeMapping=[Container]
 				'query parameters -> {' 
-					'(' (queryParameters+=FullJvmFormalParameter (',' queryParameters+=FullJvmFormalParameter)*)? ')'
+					'(' (queryParameters+=JvmFormalParameter (',' queryParameters+=JvmFormalParameter)*)? ')'
 				'}'
 		'}';
+		
 			
 QueryMapping:
 	SingleResultQueryMapping | MultipleResultQueryMapping;

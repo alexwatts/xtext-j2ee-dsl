@@ -13,6 +13,7 @@
 import entities.*
 import entities.Branch.*
 import entities.Tree.*
+import entities.Foo.*
 
 package entities
 -->

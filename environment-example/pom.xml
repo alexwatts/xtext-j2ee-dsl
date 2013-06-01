@@ -99,7 +99,7 @@
 							<mainClass>ajw.xtext.accessdsl.generator.Main</mainClass>
 							<arguments>
 								<argument>-src</argument>
-								<argument>${basedir}/src/main/dsl-sources/test.jpadsl:${basedir}/src/main/dsl-sources/META-INF/orm.xml:${basedir}/src/main/dsl-sources/test.accessdsl</argument>
+								<argument>${basedir}/src/main/dsl-sources/test.accessdsl:${basedir}/src/main/dsl-sources/test.jpadsl:${basedir}/src/main/dsl-sources/META-INF/orm.xml</argument>
 								<argument>-targetdir</argument>
 								<argument>${basedir}/src/main/generated-sources</argument>
 							</arguments>

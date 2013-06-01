@@ -18,11 +18,14 @@ import accessdsl.accessDsl.AssociateOperation
 import jpadsl.jPADsl.RelationshipAttribute
 import jpadsl.jPADsl.SingularRelationshipAttribute
 import jpadsl.jPADsl.MultipleRelationshipAttribute
+import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 
-class AccessorGenerator  {
-	
+class AccessorGenerator {
+
 	@Inject extension AccessDslGeneratorExtensions generatorExtensions
 	
+	@Inject extension JvmTypesBuilder
+
 	def compileAccessor(Unit u) '''
 /**
  * «u.name.toFirstUpper() + "AccessorBean.java"»
@@ -47,98 +50,104 @@ public class «u.name.toFirstUpper() + "Accessor"» {
 		this.em = em;
 	}
 
-	«FOR qm:u.querymapping»
+	«FOR qm : u.querymapping»
 		«val querymapping = queryMapping(qm)»
 		«querymapping»
 	«ENDFOR»
 	
-	«FOR sa:u.stateAdjustment»
+	«FOR sa : u.stateAdjustment»
 		«val stateAdjustment = stateAdjustment(sa)»
 		«stateAdjustment»
 	«ENDFOR»
 
 }
-'''	
+'''
 
 	def queryMapping(QueryAndTypeMapping qm) '''
-	
-	«IF qm.query instanceof MultipleResultQueryMapping»
-	public List<«qm.typeMapping.name»> «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR»   ) {
 		
-		final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
-		
-		List<«qm.typeMapping.name»> containers = new ArrayList<«qm.typeMapping.name»>();
-		
-		List<Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF»> results = (List<Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF»>) query.getResultList();
-		
-		for (Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF» row : results) {
-			containers.add(new «qm.typeMapping.name»(row));
+		«IF qm.query instanceof MultipleResultQueryMapping»
+			public List<«qm.typeMapping.name»> «qm.name» ( «FOR qp : qm.queryParameters»«val queryParamater = queryParameter(qp, qm.queryParameters.last)»«queryParamater»«ENDFOR»   ) {
+				
+				final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
+				
+				«IF !qm.queryParameters.isEmpty()»«FOR qp : qm.queryParameters»
+					query.setParameter("«(qp).name»", «(qp).name»);
+				«ENDFOR»
+			«ENDIF»
+			
+			List<«qm.typeMapping.name»> containers = new ArrayList<«qm.typeMapping.name»>();
+			
+			List<Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF»> results = (List<Object«IF qm.typeMapping.
+			containerElements.size > 1»[]«ELSE»«ENDIF»>) query.getResultList();
+			
+			for (Object«IF qm.typeMapping.containerElements.size > 1»[]«ELSE»«ENDIF» row : results) {
+				containers.add(new «qm.typeMapping.name»(row));
+			}
+			
+			return containers;
+			
+			}
+		«ELSE»
+			public «qm.typeMapping.name» «qm.name» ( «FOR qp : qm.queryParameters»«val queryParamater = queryParameter(qp, qm.queryParameters.last)»«queryParamater»«ENDFOR» ) {
+				
+				final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
+				
+				      «IF !qm.queryParameters.isEmpty()»«FOR qp : qm.queryParameters»
+				      	query.setParameter("«(qp).name»", «(qp).name»);
+				      «ENDFOR»
+				«ENDIF»
+				
+				return new «qm.typeMapping.name»(query.getSingleResult());
+				
+			}
+		«ENDIF»
+	'''
+
+	def queryParameter(JvmFormalParameter p, JvmFormalParameter last) '''«p.parameterType.simpleName» «p.name»«IF p != last», «ENDIF»'''
+
+	def queryParameterLiteral(JvmFormalParameter p, JvmFormalParameter last) '''«p.name»«IF p != last», «ENDIF»'''
+
+	def stateAdjustment(StateAdjustment sa) '''
+		«val stateOperation = stateOperation(sa.stateOperation, sa.name)»«stateOperation»
+	'''
+
+	def dispatch stateOperation(StateOperation so, String name) '''
+		'''
+
+	def dispatch stateOperation(PersistOperation pe, String name) '''
+		public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower») {
+			em.persist(«pe.this.name.toFirstLower»);
+			return «pe.this.name.toFirstLower»;
 		}
-		
-		return containers;
-		
-	}
-	«ELSE»
-	public «qm.typeMapping.name» «qm.name» ( «FOR qp:qm.queryParameters»«val queryParamater = queryParameter(qp,qm.queryParameters.last)»«queryParamater»«ENDFOR» ) {
-		
-		final Query query = em.createNamedQuery("«qm.query.namedQuery.name»");
-		
-        «IF !qm.queryParameters.isEmpty()»«FOR qp:qm.queryParameters»
-        query.setParameter("«qp.name»", «qp.name»);
-        «ENDFOR»
-        «ENDIF»
-		
-		return new «qm.typeMapping.name»(query.getSingleResult());
-		
-	}
-	«ENDIF»
-	'''
-	
-	def queryParameter(JvmFormalParameter qp, JvmFormalParameter last) '''«qp.parameterType.simpleName» «qp.name»«IF qp != last», «ENDIF»'''
-	
-	
-	def queryParameterLiteral(JvmFormalParameter qp, JvmFormalParameter last) '''«qp.name»«IF qp != last», «ENDIF»'''
-	
-	
-	
-	def stateAdjustment(StateAdjustment sa)'''
-	«val stateOperation = stateOperation(sa.stateOperation, sa.name)»«stateOperation»
 	'''
 
-	def dispatch stateOperation(StateOperation so, String name)'''
+	def dispatch stateOperation(PersistAndAssociateOperation pe, String name) '''
+		public «pe.newEntity.name» «name» («pe.newEntity.name» «pe.newEntity.name.toFirstLower», «pe.existingEntity.name» «pe.
+			existingEntity.name.toFirstLower») {
+			em.persist(«pe.newEntity.name.toFirstLower»);
+			
+			«pe.existingEntity.name.toFirstLower»«val setOrAddMethodCall = setOrAddMethodCall(pe.associaltion,
+			pe.associaltion.name.toFirstUpper, pe.newEntity.name.toFirstLower)»«setOrAddMethodCall»
+			
+			return «pe.newEntity.name.toFirstLower»;
+		}
 	'''
 
-	def dispatch stateOperation(PersistOperation pe, String name)'''
-	public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower») {
-		em.persist(«pe.this.name.toFirstLower»);
-		return «pe.this.name.toFirstLower»;
-	}
+	def dispatch stateOperation(AssociateOperation pe, String name) '''
+		public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower», «pe.that.name» «pe.that.name.toFirstLower») {
+			
+			«pe.this.name.toFirstLower»«val setOrAddMethodCall = setOrAddMethodCall(pe.associaltion,
+			pe.associaltion.name.toFirstUpper, pe.that.name.toFirstLower)»«setOrAddMethodCall»
+			
+			return «pe.this.name.toFirstLower»;
+		}
 	'''
 
-	def dispatch stateOperation(PersistAndAssociateOperation pe, String name)'''
-	public «pe.newEntity.name» «name» («pe.newEntity.name» «pe.newEntity.name.toFirstLower», «pe.existingEntity.name» «pe.existingEntity.name.toFirstLower») {
-		em.persist(«pe.newEntity.name.toFirstLower»);
-		
-		«pe.existingEntity.name.toFirstLower»«val setOrAddMethodCall = setOrAddMethodCall(pe.associaltion, pe.associaltion.name.toFirstUpper, pe.newEntity.name.toFirstLower)»«setOrAddMethodCall»
-		
-		return «pe.newEntity.name.toFirstLower»;
-	}
-	'''
-	
-	def dispatch stateOperation(AssociateOperation pe, String name)'''
-	public «pe.this.name» «name» («pe.this.name» «pe.this.name.toFirstLower», «pe.that.name» «pe.that.name.toFirstLower») {
-		
-		«pe.this.name.toFirstLower»«val setOrAddMethodCall = setOrAddMethodCall(pe.associaltion, pe.associaltion.name.toFirstUpper, pe.that.name.toFirstLower)»«setOrAddMethodCall»
-		
-		return «pe.this.name.toFirstLower»;
-	}
-	'''
+	def dispatch setOrAddMethodCall(RelationshipAttribute re, String associationName, String elementName) ''''''
 
-	def dispatch setOrAddMethodCall(RelationshipAttribute re, String associationName, String elementName)''''''
-	
-	def dispatch setOrAddMethodCall(SingularRelationshipAttribute re, String associationName, String elementName)'''.set«associationName»(«elementName»);'''
-	
-	def dispatch setOrAddMethodCall(MultipleRelationshipAttribute re, String associationName, String elementName)'''.add«re.type.referenced.name.toFirstUpper»(«elementName»);'''
-	
+	def dispatch setOrAddMethodCall(SingularRelationshipAttribute re, String associationName, String elementName) '''.set«associationName»(«elementName»);'''
+
+	def dispatch setOrAddMethodCall(MultipleRelationshipAttribute re, String associationName, String elementName) '''.add«re.
+		type.referenced.name.toFirstUpper»(«elementName»);'''
 
 }

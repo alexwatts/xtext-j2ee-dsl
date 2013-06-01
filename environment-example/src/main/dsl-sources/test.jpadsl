@@ -19,5 +19,6 @@ package entities {
 		attribute branchName : String
 		
 	}
+	
 
 }

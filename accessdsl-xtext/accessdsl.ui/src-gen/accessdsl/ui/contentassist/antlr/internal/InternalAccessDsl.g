@@ -17757,8 +17757,8 @@ rule__QueryAndTypeMapping__QueryParametersAssignment_9_0
     }
 :
 (
-{ before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_0_0()); }
-	ruleFullJvmFormalParameter{ after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_0_0()); }
+{ before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_0_0()); }
+	ruleJvmFormalParameter{ after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_0_0()); }
 )
 
 ;
@@ -17772,8 +17772,8 @@ rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_1
     }
 :
 (
-{ before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_1_1_0()); }
-	ruleFullJvmFormalParameter{ after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_1_1_0()); }
+{ before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_1_1_0()); }
+	ruleJvmFormalParameter{ after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_1_1_0()); }
 )
 
 ;

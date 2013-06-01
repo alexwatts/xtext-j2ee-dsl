@@ -50871,28 +50871,28 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QueryAndTypeMapping__QueryParametersAssignment_9_0"
-    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17754:1: rule__QueryAndTypeMapping__QueryParametersAssignment_9_0 : ( ruleFullJvmFormalParameter ) ;
+    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17754:1: rule__QueryAndTypeMapping__QueryParametersAssignment_9_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__QueryAndTypeMapping__QueryParametersAssignment_9_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17758:1: ( ( ruleFullJvmFormalParameter ) )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17759:1: ( ruleFullJvmFormalParameter )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17758:1: ( ( ruleJvmFormalParameter ) )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17759:1: ( ruleJvmFormalParameter )
             {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17759:1: ( ruleFullJvmFormalParameter )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17760:1: ruleFullJvmFormalParameter
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17759:1: ( ruleJvmFormalParameter )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17760:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_0_0()); 
+               before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_0_0()); 
             }
-            pushFollow(FOLLOW_ruleFullJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_035716);
-            ruleFullJvmFormalParameter();
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_035716);
+            ruleJvmFormalParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_0_0()); 
+               after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_0_0()); 
             }
 
             }
@@ -50916,28 +50916,28 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_1"
-    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17769:1: rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_1 : ( ruleFullJvmFormalParameter ) ;
+    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17769:1: rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17773:1: ( ( ruleFullJvmFormalParameter ) )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17774:1: ( ruleFullJvmFormalParameter )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17773:1: ( ( ruleJvmFormalParameter ) )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17774:1: ( ruleJvmFormalParameter )
             {
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17774:1: ( ruleFullJvmFormalParameter )
-            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17775:1: ruleFullJvmFormalParameter
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17774:1: ( ruleJvmFormalParameter )
+            // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:17775:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_1_1_0()); 
+               before(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleFullJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_135747);
-            ruleFullJvmFormalParameter();
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_135747);
+            ruleJvmFormalParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersFullJvmFormalParameterParserRuleCall_9_1_1_0()); 
+               after(grammarAccess.getQueryAndTypeMappingAccess().getQueryParametersJvmFormalParameterParserRuleCall_9_1_1_0()); 
             }
 
             }
@@ -61995,8 +61995,8 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_ruleImport_in_rule__QueryAndTypeMapping__ImportsAssignment_335615 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQueryMapping_in_rule__QueryAndTypeMapping__QueryAssignment_435646 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__QueryAndTypeMapping__TypeMappingAssignment_635681 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_035716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_135747 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_035716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__QueryAndTypeMapping__QueryParametersAssignment_9_1_135747 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__SingleResultQueryMapping__NamedQueryAssignment_135782 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__MultipleResultQueryMapping__NamedQueryAssignment_135821 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__StateAdjustment__NameAssignment_235856 = new BitSet(new long[]{0x0000000000000002L});
