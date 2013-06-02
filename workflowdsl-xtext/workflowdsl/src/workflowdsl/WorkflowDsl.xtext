@@ -1,0 +1,151 @@
+grammar workflowdsl.WorkflowDsl with org.eclipse.xtext.common.Terminals
+
+generate workflowDsl "http://www.WorkflowDsl.workflowdsl"
+
+Model:
+	imports+=Import+
+	workflowDefinitions+=WorkflowDefinition+;
+	
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard;
+	
+WorkflowDefinition:
+	'workflow definition' name=ID '{'
+	    className=ClassName
+	    packages=Package
+		events+=Event*
+		variables+=Variable*
+		nodes+=Node+
+		connectors+=Connector+
+		tests+=Test+
+ 	'}';
+
+
+
+Package:
+	'package' name=ID;
+	
+MarketName:
+	'market name' marketName=STRING;
+	
+ClassName:
+	'class name' className=STRING;
+
+	
+Event:
+	'event' name=ID ;
+
+Variable:	
+	StringBasedConditionalVaraible;
+	
+StringBasedConditionalVaraible:		
+	'string based conditional variable' name=ID;
+	
+Node:
+	StartNode | EndNode | ServiceTask | Gateway | Signal;
+	
+ServiceTask:
+	AsyncronousServiceTask | SyncronousServiceTask;
+	
+Gateway:
+		DivergingGateway | ConvergingGateway;
+	
+DivergingGateway:
+	ExlcusiveDiverging | ParallelDiverging;	
+	
+ConvergingGateway:
+	ExclusiveConverging | ParallelConverging;
+
+StartNode:
+	'start node' name=ID;
+	
+EndNode:
+	'end node' name=ID;
+	
+Signal:
+	'signal' name=ID '{'
+		event=[Event]
+		output=OutputData?
+	'}';
+		
+AsyncronousServiceTask:
+	'asyncronous task' name=ID '{'
+		 inputs+=InputData* 
+		 output=OutputData?
+	'}';
+	
+SyncronousServiceTask:
+	'syncronous task' name=ID '{'
+		 inputs+=InputData*
+		 output=OutputData?
+	'}';
+		
+ExlcusiveDiverging:	
+	'exclusive diverging' name=ID;
+	
+ParallelDiverging:	
+	'parallel diverging' name=ID;
+	
+ExclusiveConverging:	
+	'exclusive converging' name=ID;
+	
+ParallelConverging:	
+	'parallel converging' name=ID;
+	
+Connector:
+	BasicConnector | ConditionalConnector;
+	
+BasicConnector:
+	'connect' from=[Node] to=[Node];
+	
+InputData:
+	TaskNameInput | VariableBasedInput | EventBasedInput;
+	
+TaskNameInput:
+	'task name input' {TaskNameInput};
+	
+VariableBasedInput:
+	'variable based input' variable=[StringBasedConditionalVaraible] eventParameterName=STRING;
+	
+EventBasedInput: 
+	'map based input' event=[Event] variable=[StringBasedConditionalVaraible] eventParameterName=STRING;	
+	
+OutputData:
+	'output' value=[StringBasedConditionalVaraible];
+
+ConditionalConnector:
+	'conditional connector' name=ID from=[Node] to=[Node] '{'
+		event=[Event] stringBasedConditionalExpression=[StringBasedConditionalVaraible] value=STRING
+	'}';
+	
+Test:
+	'test' name=ID '{'
+		processVariables+=ProcessVariable*
+		fireSignal+=FireSignal*
+		assertFlow+=AssertFlow*
+		assertWait+=AssertWait*
+	'}';
+
+ProcessVariable:
+	'process variable' variable=[StringBasedConditionalVaraible] value=[ConditionalConnector];
+	
+FireSignal:
+	'fire signal' fireSignal=[Signal] '{'
+		case=[ConditionalConnector]?
+	'}';
+	
+AssertFlow:
+	'assertflow' '{'
+		nodes+=[Node]+
+	'}';
+	
+AssertWait:
+	'assertWait' '{'
+		nodes+=[Node]+
+	'}';
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;

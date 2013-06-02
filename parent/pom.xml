@@ -45,7 +45,6 @@
 	</pluginRepositories>
 
 	<modules>
-		<!--
 		<module>../jpadsl-xtext/jpadsl</module>
 		<module>../jpadsl-xtext/jpadsl.ui</module>
 		<module>../jpadsl-xtext/jpadsl.standalone</module>
@@ -59,7 +58,6 @@
 		<module>../accessdsl-xtext/accessdsl.standalone</module>
 		<module>../accessdsl-xtext/accessdsl.generator</module>
                 <module>../environment-example/pom.xml</module>
-		-->
 		<module>../workflowdsl-xtext/workflowdsl/pom.xml</module>
 		<module>../workflowdsl-xtext/workflowdsl.ui/pom.xml</module>
 		<module>../workflowdsl-xtext/workflowdsl.standalone/pom.xml</module>

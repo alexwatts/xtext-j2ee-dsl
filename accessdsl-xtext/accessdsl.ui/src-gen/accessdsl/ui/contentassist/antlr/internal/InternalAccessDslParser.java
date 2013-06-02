@@ -46365,25 +46365,7 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
             loop105:
             do {
                 int alt105=2;
-                int LA105_0 = input.LA(1);
-
-                if ( (LA105_0==71) ) {
-                    int LA105_2 = input.LA(2);
-
-                    if ( (LA105_2==72) ) {
-                        int LA105_3 = input.LA(3);
-
-                        if ( (synpred144_InternalAccessDsl()) ) {
-                            alt105=1;
-                        }
-
-
-                    }
-
-
-                }
-
-
+                alt105 = dfa105.predict(input);
                 switch (alt105) {
             	case 1 :
             	    // ../accessdsl.ui/src-gen/accessdsl/ui/contentassist/antlr/internal/InternalAccessDsl.g:16101:2: rule__JvmTypeReference__Group_0_1__0
@@ -58386,6 +58368,7 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
     protected DFA94 dfa94 = new DFA94(this);
     protected DFA95 dfa95 = new DFA95(this);
     protected DFA100 dfa100 = new DFA100(this);
+    protected DFA105 dfa105 = new DFA105(this);
     protected DFA109 dfa109 = new DFA109(this);
     static final String DFA9_eotS =
         "\14\uffff";
@@ -60257,23 +60240,22 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
         }
     }
     static final String DFA100_eotS =
-        "\37\uffff";
+        "\36\uffff";
     static final String DFA100_eofS =
-        "\37\uffff";
+        "\36\uffff";
     static final String DFA100_minS =
-        "\1\4\36\0";
+        "\1\4\35\0";
     static final String DFA100_maxS =
-        "\1\142\36\0";
+        "\1\142\35\0";
     static final String DFA100_acceptS =
-        "\37\uffff";
+        "\36\uffff";
     static final String DFA100_specialS =
-        "\37\uffff}>";
+        "\36\uffff}>";
     static final String[] DFA100_transitionS = {
             "\1\1\1\22\1\23\1\24\1\26\20\uffff\1\14\7\uffff\1\10\1\7\4\uffff"+
             "\1\6\2\uffff\1\2\1\3\1\4\1\5\1\15\1\20\1\uffff\1\12\24\uffff"+
             "\1\16\1\17\2\uffff\1\30\1\uffff\1\13\3\uffff\1\31\1\32\1\33"+
-            "\1\uffff\1\11\1\25\1\27\1\34\1\35\11\uffff\1\21",
-            "\1\uffff",
+            "\1\uffff\1\11\1\25\1\27\1\34\12\uffff\1\21",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -60336,6 +60318,155 @@ public class InternalAccessDslParser extends AbstractInternalContentAssistParser
         }
         public String getDescription() {
             return "15309:1: ( rule__XReturnExpression__ExpressionAssignment_2 )?";
+        }
+    }
+    static final String DFA105_eotS =
+        "\112\uffff";
+    static final String DFA105_eofS =
+        "\1\1\111\uffff";
+    static final String DFA105_minS =
+        "\1\4\35\uffff\1\0\53\uffff";
+    static final String DFA105_maxS =
+        "\1\142\35\uffff\1\0\53\uffff";
+    static final String DFA105_acceptS =
+        "\1\uffff\1\2\107\uffff\1\1";
+    static final String DFA105_specialS =
+        "\36\uffff\1\0\53\uffff}>";
+    static final String[] DFA105_transitionS = {
+            "\5\1\5\uffff\42\1\1\uffff\2\1\6\uffff\3\1\10\uffff\3\1\1\36"+
+            "\13\1\1\uffff\10\1\2\uffff\2\1\1\uffff\2\1",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA105_eot = DFA.unpackEncodedString(DFA105_eotS);
+    static final short[] DFA105_eof = DFA.unpackEncodedString(DFA105_eofS);
+    static final char[] DFA105_min = DFA.unpackEncodedStringToUnsignedChars(DFA105_minS);
+    static final char[] DFA105_max = DFA.unpackEncodedStringToUnsignedChars(DFA105_maxS);
+    static final short[] DFA105_accept = DFA.unpackEncodedString(DFA105_acceptS);
+    static final short[] DFA105_special = DFA.unpackEncodedString(DFA105_specialS);
+    static final short[][] DFA105_transition;
+
+    static {
+        int numStates = DFA105_transitionS.length;
+        DFA105_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA105_transition[i] = DFA.unpackEncodedString(DFA105_transitionS[i]);
+        }
+    }
+
+    class DFA105 extends DFA {
+
+        public DFA105(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 105;
+            this.eot = DFA105_eot;
+            this.eof = DFA105_eof;
+            this.min = DFA105_min;
+            this.max = DFA105_max;
+            this.accept = DFA105_accept;
+            this.special = DFA105_special;
+            this.transition = DFA105_transition;
+        }
+        public String getDescription() {
+            return "()* loopback of 16101:1: ( rule__JvmTypeReference__Group_0_1__0 )*";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA105_30 = input.LA(1);
+
+                         
+                        int index105_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred144_InternalAccessDsl()) ) {s = 73;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_30);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 105, _s, input);
+            error(nvae);
+            throw nvae;
         }
     }
     static final String DFA109_eotS =
