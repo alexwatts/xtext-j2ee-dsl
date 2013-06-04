@@ -22,9 +22,9 @@ class WorkflowDslGenerator implements IGenerator {
 		
 		for(workflow: model.workflowDefinitions) {
 			
-			fsa.generateFile("src/test/resources" + workflow.name + ".bpmn2", workflow.compileBpmn2)
+			fsa.generateFile("resources/" + workflow.name + ".bpmn2", workflow.compileBpmn2)
 			
-			fsa.generateFile("src/main/test/entities/" + workflow.name.toFirstUpper + "Test.java", workflow.compileJBPMUnitTest)
+			fsa.generateFile("java/ajw/xtext/tests/" + workflow.name.toFirstUpper + "Test.java", workflow.compileJBPMUnitTest)
 		}
 	}
 	

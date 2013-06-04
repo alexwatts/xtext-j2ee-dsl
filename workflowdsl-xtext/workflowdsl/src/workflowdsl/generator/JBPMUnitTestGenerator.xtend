@@ -17,10 +17,10 @@ class JBPMUnitTestGenerator  {
 	@Inject extension WorkflowDslGeneratorExtensions generatorExtensions
 	
 	def compileJBPMUnitTest(WorkflowDefinition w) '''
-package entities.test;
+package ajw.xtext.tests;
 
-import static entities.test.assertProcessInstanceActive;
-import static entities.test.assertProcessInstanceCompleted;
+import static ajw.xtext.tests.jbpm.util.WorkflowTestUtil.assertProcessInstanceActive;
+import static ajw.xtext.tests.jbpm.util.WorkflowTestUtil.assertProcessInstanceCompleted;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +31,7 @@ import org.drools.runtime.process.ProcessInstance;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import entities.test.JbpmJUnitTestCase;
+import ajw.xtext.tests.jbpm.base.JbpmJUnitTestCase;
 
 public class «w.name.toFirstUpper»Test extends JbpmJUnitTestCase {
 	

@@ -1,0 +1,208 @@
+import entities.*
+
+workflow definition newProductv001 {
+	
+	class name "NewProduct"
+
+	package entities
+	 
+	 event completion
+	 
+	 event creation
+	 
+	 string based conditional variable completionStatus	
+	 
+	 string based conditional variable auctionCreationStatus
+	 
+	 string based conditional variable serialNumber
+	 
+	 
+	 
+	 syncronous task CreateAuction {
+		task name input
+		variable based input serialNumber "serialNumber"
+	}
+	 
+	 
+	 start node Start
+	 
+	 signal CompleteProduct {
+	 	completion
+	 	output completionStatus 
+	 }
+	 
+	 exclusive diverging CompleteOrCancel
+
+	 signal CompletedProduct {
+	 	completion
+	 	output completionStatus 
+	 }
+
+	 signal UncancelProduct {
+	 	completion
+	 	output completionStatus 
+	 }
+
+	 signal PendingProduct {
+	 	creation
+	 	output auctionCreationStatus
+	 }	 	 
+	 
+	 
+	 signal FailedAuctionCreation {
+	 	creation
+	 }
+	 
+	 exclusive diverging SaleOrCancel	 
+
+	 exclusive diverging AuctionCreatedOrNot
+	 
+	 exclusive converging RejoinAfterCancel
+
+	 end node UncancelEnd
+
+	 end node SaleEnd
+	 
+	 end node NotSaleEnd
+	 
+	 connect Start CompleteProduct
+	 
+	 connect CompleteProduct CompleteOrCancel
+	 
+	 conditional connector completeCase CompleteOrCancel CompletedProduct {
+		completion completionStatus "complete"
+	 } 
+
+	 conditional connector completeCancelCase CompleteOrCancel RejoinAfterCancel {
+		completion completionStatus "completeCancel"
+	 }
+
+	 conditional connector saleCase SaleOrCancel PendingProduct {
+		completion completionStatus "sale"
+	 }
+	
+	 conditional connector auctionCreated AuctionCreatedOrNot SaleEnd {
+	 	creation auctionCreationStatus "auctionCreated"
+	 }
+	
+	 conditional connector auctionNotCreated AuctionCreatedOrNot FailedAuctionCreation {
+	 	creation auctionCreationStatus "auctionNotCreated"
+	 }
+		
+	 conditional connector saleCancelCase SaleOrCancel RejoinAfterCancel {
+		completion completionStatus "saleCancel"
+	 }
+
+	 connect CompletedProduct SaleOrCancel
+	
+	 connect PendingProduct CreateAuction
+	 
+	 connect CreateAuction AuctionCreatedOrNot 
+		
+	 connect RejoinAfterCancel UncancelProduct
+
+	 connect UncancelProduct UncancelEnd
+	 
+	 connect FailedAuctionCreation NotSaleEnd
+
+	 test productAuctionCreated {
+	 
+	 	fire signal CompleteProduct {
+	 		completeCase
+	 	}
+	 	
+	 	fire signal CompletedProduct {
+	 		saleCase
+	 	}
+		
+		fire signal PendingProduct {
+			auctionCreated
+		} 
+		
+	 	assertflow {
+	 		Start
+	 		CompleteProduct
+			CompleteOrCancel
+			CompletedProduct
+			SaleOrCancel
+			PendingProduct
+			CreateAuction
+			AuctionCreatedOrNot	
+	 		SaleEnd
+	 	}
+	 }
+	 
+	 test productAuctionNotCreated {
+	 	fire signal CompleteProduct {
+	 		completeCase
+	 	}
+	 	
+	 	fire signal CompletedProduct {
+	 		saleCase
+	 	}
+		
+		fire signal PendingProduct {
+			auctionNotCreated
+		} 
+		
+		fire signal FailedAuctionCreation {
+		}
+		
+	 	assertflow {
+	 		Start
+	 		CompleteProduct
+			CompleteOrCancel
+			CompletedProduct
+			SaleOrCancel
+			PendingProduct
+			CreateAuction
+			AuctionCreatedOrNot
+			FailedAuctionCreation	
+	 		NotSaleEnd
+	 	}
+	 }
+
+	 test productCompletedUncancelledFlow {
+	 	fire signal CompleteProduct {
+	 		completeCancelCase
+	 	}
+
+	 	fire signal UncancelProduct {
+	 		
+	 	}
+
+	 	assertflow {
+	 		Start
+	 		CompleteProduct
+			CompleteOrCancel
+			RejoinAfterCancel
+			UncancelProduct
+			UncancelEnd
+	 	}
+	 }
+
+	 test productReadyForSaleUncancelledFlow {
+	 	fire signal CompleteProduct {
+	 		completeCase
+	 	}
+	 	
+	 	fire signal CompletedProduct {
+	 		saleCancelCase
+	 	}
+
+	 	fire signal UncancelProduct {
+	 	}
+
+	 	assertflow {
+	 		Start
+	 		CompleteProduct
+			CompleteOrCancel
+			CompletedProduct
+			SaleOrCancel
+			RejoinAfterCancel
+			UncancelProduct
+	 		UncancelEnd
+	 	}
+	 }
+
+}

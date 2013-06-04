@@ -1,4 +1,4 @@
-package ajw.xtext.jpadsl.generator;
+package ajw.xtext.workflowdsl.generator;
 
 import java.util.List;
 
